@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+.customer-support-wrapper {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 0px;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  padding: 140px 0 100px;
+  text-align: center;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+   background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+}
+.payment-hero {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #0a3d62;
+  margin-bottom: 24px;
+  letter-spacing: -1.2px;
+}
+
+.hero-content h1 .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.hero.visible .hero-content h1 .word {
+  opacity: 1;
+  transform: translateY(0);
+  animation: revealWord 0.6s ease-out forwards;
+  animation-delay: calc(0.2s + (var(--word-index) * 0.15s));
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  color: #0a3d62;
+  margin-bottom: 32px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Support Info Section */
+#supportid {
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 300px;
+}
+
+#supportid > div {
+  max-width: 800px;
+}
+
+#supportid h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#supportid p {
+  font-size: 1.25rem;
+  color: #4b5563;
+  line-height: 1.8;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+ text-align: inherit;
+
+}
+
+/* Support Services Section */
+#supportserviceid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  padding: 60px 0;
+  text-align: center;
+}
+html {
+  scroll-behavior: smooth;
+}
+#supportserviceid > div {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#supportserviceid > div a {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  text-decoration: none;
+  flex: 1;
+}
+
+#supportserviceid > div::after {
+  content: '\2192';
+  font-size: 1.5rem;
+  color: #3b82f6;
+  transition: transform 0.3s ease;
+}
+
+#supportserviceid > div:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+#supportserviceid > div:hover::after {
+  transform: translateX(5px);
+}
+
+/* Help & Support Section */
+#helpsupportid {
+  background: #f1f5f9;
+  padding: 80px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  text-align: left;
+}
+
+#helpsupportid > div {
+  flex: 1;
+  max-width: 400px;
+  padding: 0 20px;
+}
+
+#helpsupportid b {
+  font-size: 2rem;
+  color: #1e3a8a;
+  display: block;
+  margin-bottom: 16px;
+}
+
+#helpsupportid p {
+  font-size: 1.125rem;
+  color: #4b5563;
+  margin-bottom: 16px;
+}
+
+#helpsupportid p strong {
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+/* Buttons */
+.btn-glow {
+  display: inline-block;
+  padding: 14px 32px;
+  background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+  color: #ffffff;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+}
+
+.btn-glow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.5);
+}
+
+/* Animations */
+@keyframes revealWord {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-slide {
+  opacity: 0;
+}
+
+section.visible .animate-slide {
+  animation: slide 0.7s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .hero {
+    padding: 100px 0;
+    min-height: 500px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1.3rem;
+  }
+
+  #supportid h1 {
+    font-size: 2rem;
+  }
+
+  #supportserviceid {
+    grid-template-columns: 1fr;
+  }
+
+  #helpsupportid {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #helpsupportid > div {
+    max-width: 100%;
+    margin-bottom: 32px;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin-top: 85px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 80px 0;
+    min-height: 400px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  #supportid {
+    padding: 60px 0;
+  }
+
+  #helpsupportid {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 60px 0;
+    min-height: 350px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  #supportid h1 {
+    font-size: 1.8rem;
+  }
+
+  #supportserviceid > div {
+    padding: 24px;
+  }
+
+  #helpsupportid b {
+    font-size: 1.8rem;
+  }
+
+  .btn-glow {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
+.fas.fa-phone {
+  margin-right: 8px; 
+}
+.fas.fa-envelope{
+ margin-right: 8px; 
+}

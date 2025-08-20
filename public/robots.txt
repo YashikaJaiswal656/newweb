@@ -1,3 +1,17 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemaps
+Sitemap: https://finikelithium.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 10
+
+# Disallow paths
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /test/
+Disallow: /*.pdf$
+Disallow: /*?*

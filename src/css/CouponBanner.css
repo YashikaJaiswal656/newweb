@@ -1,0 +1,752 @@
+/* Modern Coupon Banner */
+
+/* CSS Variables - Independence Day Theme */
+:root {
+  --banner-height: 80px;
+  --banner-collapsed-height: 45px;
+  --banner-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --saffron: #FF9933;
+  --white: #FFFFFF;
+  --green: #138808;
+  --navy-blue: #000080;
+}
+
+/* Animations */
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes flashCode {
+  0%, 100% {
+    background: var(--white);
+    color: var(--navy-blue);
+  }
+  50% {
+    background: var(--saffron);
+    color: var(--white);
+  }
+}
+
+/* Main Banner - Independence Day Theme */
+.coupon-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  color: white;
+  transition: var(--banner-transition);
+  animation: slideInTop 0.5s ease-out;
+  backdrop-filter: blur(10px);
+  border-bottom: 3px solid var(--navy-blue);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modern-banner {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Independence Day Tricolor Border */
+.modern-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--saffron) 33.33%, var(--white) 33.33% 66.66%, var(--green) 66.66%);
+  z-index: 10;
+}
+
+/* Ashoka Chakra in center */
+.modern-banner::after {
+  content: '☸️';
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  z-index: 11;
+  animation: chakraSpin 8s linear infinite;
+}
+
+@keyframes chakraSpin {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(360deg); }
+}
+
+.coupon-banner:not(.collapsed) {
+  height: var(--banner-height);
+}
+
+.coupon-banner.collapsed {
+  height: var(--banner-collapsed-height);
+  cursor: pointer;
+}
+
+/* Banner Container */
+.banner-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  position: relative;
+  min-height: var(--banner-height);
+  box-sizing: border-box;
+}
+
+/* Banner Content */
+.banner-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  width: 100%;
+}
+
+.banner-icon {
+  font-size: 24px;
+  animation: flagWave 2s ease-in-out infinite;
+}
+
+@keyframes flagWave {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-3deg) scale(1.05); }
+  50% { transform: rotate(0deg) scale(1.1); }
+  75% { transform: rotate(3deg) scale(1.05); }
+}
+
+/* Banner Sections */
+.banner-left-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.banner-center-section {
+  display: flex;
+  justify-content: center;
+}
+
+.banner-right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.banner-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  animation: titleShine 3s ease-in-out infinite;
+}
+
+.banner-description {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.discount-amount {
+  font-size: 18px;
+  font-weight: 900;
+  color: #FFD700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.discount-text {
+  font-size: 13px;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.banner-details {
+  font-size: 11px;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 215, 0, 0.5); }
+  to { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.8); }
+}
+
+/* Power Badge */
+.power-badge {
+  background: var(--white);
+  color: var(--navy-blue);
+  border: 3px solid var(--navy-blue);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: badgePulse 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.power-badge::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, var(--saffron), var(--white), var(--green), var(--white));
+  animation: rotateBadge 4s linear infinite;
+  z-index: -1;
+}
+
+.power-text {
+  font-size: 14px;
+  line-height: 1;
+  z-index: 3;
+  position: relative;
+}
+
+.power-label {
+  font-size: 9px;
+  font-weight: 600;
+  opacity: 0.8;
+  z-index: 3;
+  position: relative;
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes rotateBadge {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.banner-code {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.code-label {
+  font-size: 11px;
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+.code-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--white);
+  border: 2px solid var(--navy-blue);
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: var(--navy-blue);
+  font-family: 'SF Mono', 'Monaco', monospace;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--banner-transition);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: flashCode 1.5s infinite;
+}
+
+.code-button:hover {
+  background: var(--navy-blue);
+  color: var(--white);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: none;
+}
+
+.code-button.copied {
+  background: var(--green);
+  color: var(--white);
+  animation: none;
+}
+
+.code-text {
+  display: inline-block;
+}
+
+.banner-timer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+/* Banner Actions */
+.banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shop-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--green) 100%);
+  border: 2px solid var(--white);
+  border-radius: 8px;
+  padding: 8px 16px;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--banner-transition);
+  backdrop-filter: blur(10px);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.shop-button:hover {
+  background: linear-gradient(135deg, var(--green) 0%, var(--saffron) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-button,
+.close-button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: var(--banner-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-button:hover,
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Collapsed State */
+.banner-collapsed {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--banner-transition);
+}
+
+.banner-collapsed:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.collapsed-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.collapsed-content::before {
+  content: '🇮🇳';
+  margin-right: 8px;
+  animation: flagWave 2s ease-in-out infinite;
+}
+
+.collapsed-icon {
+  font-size: 18px;
+}
+
+.collapsed-text {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.collapsed-arrow {
+  opacity: 0.7;
+}
+
+/* Indicators */
+.banner-indicators {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--banner-transition);
+  padding: 0;
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.2);
+}
+
+.indicator.active {
+  background: white;
+  transform: scale(1.3);
+}
+
+/* Independence Day Banner Glow */
+.banner-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 153, 51, 0.1), 
+    rgba(255, 255, 255, 0.1), 
+    rgba(19, 136, 8, 0.1), 
+    transparent
+  );
+  animation: independenceShimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes independenceShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .banner-content {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  
+  .banner-left-section,
+  .banner-center-section,
+  .banner-right-section {
+    justify-content: center;
+  }
+  
+  .banner-right-section {
+    align-items: center;
+  }
+  
+  .power-badge {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .power-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-container {
+    padding: 0 16px;
+  }
+  
+  .banner-content {
+    gap: 12px;
+  }
+  
+  .banner-title {
+    font-size: 14px;
+  }
+  
+  .discount-amount {
+    font-size: 16px;
+  }
+  
+  .discount-text {
+    font-size: 12px;
+  }
+  
+  .banner-details {
+    font-size: 10px;
+  }
+  
+  .power-badge {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .power-text {
+    font-size: 12px;
+  }
+  
+  .power-label {
+    font-size: 9px;
+  }
+  
+  .code-button {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+  
+  .shop-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .banner-timer {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .banner-content {
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .banner-left-section,
+  .banner-center-section,
+  .banner-right-section {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .banner-right-section {
+    align-items: center;
+  }
+  
+  .banner-actions {
+    order: -1;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .power-badge {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .power-text {
+    font-size: 10px;
+  }
+  
+  .power-label {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --banner-height: 50px;
+    --banner-collapsed-height: 35px;
+  }
+  
+  .banner-container {
+    padding: 0 12px;
+  }
+  
+  .banner-content {
+    gap: 8px;
+  }
+  
+  .banner-icon {
+    font-size: 20px;
+  }
+  
+  .banner-title {
+    font-size: 13px;
+  }
+  
+  .banner-description {
+    font-size: 11px;
+  }
+  
+  .shop-button {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+  
+  .toggle-button,
+  .close-button {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .collapsed-text {
+    font-size: 12px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .code-button {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .code-button.copied {
+    background: var(--green);
+    color: var(--white);
+  }
+  
+  .shop-button {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .toggle-button,
+  .close-button {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles */
+.code-button:focus,
+.shop-button:focus,
+.toggle-button:focus,
+.close-button:focus,
+.indicator:focus {
+  outline: 2px solid var(--navy-blue);
+  outline-offset: 2px;
+}
+
+/* Ensure content doesn't hide behind banner */
+body:not(.no-banner-padding) {
+  padding-top: var(--banner-height);
+  transition: padding-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.banner-collapsed:not(.no-banner-padding) {
+  padding-top: var(--banner-collapsed-height);
+}
+
+/* Smooth banner transitions */
+.coupon-banner {
+  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.3s ease;
+}
+
+.coupon-banner.collapsed {
+  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Independence Day Confetti Effect */
+.modern-banner .banner-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, var(--saffron), transparent),
+    radial-gradient(2px 2px at 40px 70px, var(--green), transparent),
+    radial-gradient(1px 1px at 90px 40px, var(--white), transparent),
+    radial-gradient(1px 1px at 130px 80px, var(--saffron), transparent),
+    radial-gradient(2px 2px at 160px 30px, var(--green), transparent),
+    radial-gradient(1px 1px at 200px 20px, var(--navy-blue), transparent);
+  background-repeat: repeat;
+  background-size: 250px 100px;
+  animation: confettiFall 12s linear infinite;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+@keyframes confettiFall {
+  0% { 
+    transform: translateY(-100px) rotate(0deg); 
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% { 
+    transform: translateY(100px) rotate(360deg); 
+    opacity: 0;
+  }
+}
+
+/* Special Independence Day Text Effects */
+.banner-title {
+  color: white;
+  text-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(255, 215, 0, 0.3);
+  animation: titleShine 3s ease-in-out infinite;
+}
+
+@keyframes titleShine {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.2) drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); }
+}

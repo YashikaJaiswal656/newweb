@@ -1,0 +1,831 @@
+/* Modern Floating Coupon Widget */
+
+/* CSS Variables */
+:root {
+  --widget-bg: #ffffff;
+  --widget-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  --widget-border: rgba(255, 255, 255, 0.2);
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent-color: #667eea;
+  --success-color: #10b981;
+  --border-radius: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Main Widget */
+.floating-coupon-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  cursor: pointer;
+  user-select: none;
+}
+
+.modern-widget {
+  animation: slideInRight 0.5s ease-out;
+}
+
+.floating-coupon-widget.animating {
+  animation: bounce 0.6s ease-out;
+}
+
+/* Widget Content (Expanded) */
+.widget-content {
+  background: var(--widget-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  width: 280px;
+  box-shadow: var(--widget-shadow);
+  border: 1px solid var(--widget-border);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+/* Widget Header */
+.widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.widget-icon {
+  font-size: 24px;
+  margin-right: 8px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.widget-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.widget-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.minimize-btn,
+.close-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text-secondary);
+}
+
+.minimize-btn:hover,
+.close-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+/* Widget Body */
+.widget-body {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.coupon-preview {
+  text-align: center;
+}
+
+.preview-discount {
+  font-size: 28px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--accent-color), #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.preview-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.coupon-info {
+  flex: 1;
+}
+
+.coupon-description {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.coupon-code {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: var(--transition);
+  font-family: 'SF Mono', 'Monaco', monospace;
+}
+
+.coupon-code:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: var(--accent-color);
+}
+
+/* Widget Footer */
+.widget-footer {
+  margin-top: 16px;
+}
+
+.claim-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--accent-color), #764ba2);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.claim-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.claim-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Widget Minimized */
+.widget-minimized {
+  background: var(--widget-bg);
+  border-radius: 50px;
+  padding: 12px 16px;
+  box-shadow: var(--widget-shadow);
+  border: 1px solid var(--widget-border);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.widget-minimized:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+.minimized-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.minimized-icon {
+  font-size: 20px;
+}
+
+.minimized-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.minimized-discount {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--accent-color);
+  line-height: 1;
+}
+
+.minimized-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Pulse Effects */
+.widget-pulse {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: var(--border-radius);
+  background: linear-gradient(135deg, var(--accent-color), #764ba2);
+  opacity: 0.3;
+  animation: pulse 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+.minimized-pulse {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--accent-color), #764ba2);
+  opacity: 0.3;
+  animation: pulse 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* Widget Glow */
+.widget-glow {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+  animation: glow 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .floating-coupon-widget {
+    bottom: 80px; /* Above mobile navigation if any */
+    right: 16px;
+  }
+  
+  .widget-content {
+    width: 260px;
+    padding: 16px;
+  }
+  
+  .preview-discount {
+    font-size: 24px;
+  }
+  
+  .widget-title {
+    font-size: 14px;
+  }
+  
+  .coupon-description {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-coupon-widget {
+    bottom: 16px;
+    right: 16px;
+  }
+  
+  .widget-content {
+    width: 240px;
+    padding: 14px;
+  }
+  
+  .widget-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .coupon-preview {
+    text-align: left;
+  }
+  
+  .preview-discount {
+    font-size: 20px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --widget-bg: #1f2937;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --widget-border: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles */
+.floating-coupon-widget:focus,
+.claim-btn:focus,
+.minimize-btn:focus,
+.close-btn:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Custom accent color support */
+.floating-coupon-widget {
+  --current-accent: var(--accent-color);
+}
+
+.modern-widget .preview-discount {
+  background: linear-gradient(135deg, var(--current-accent, var(--accent-color)), #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modern-widget .minimized-discount {
+  color: var(--current-accent, var(--accent-color));
+}
+
+.modern-widget .claim-btn {
+  background: linear-gradient(135deg, var(--current-accent, var(--accent-color)), #764ba2);
+}
+
+.modern-widget .widget-pulse,
+.modern-widget .minimized-pulse {
+  background: linear-gradient(135deg, var(--current-accent, var(--accent-color)), #764ba2);
+}
+
+.claim-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  transition: all 0.2s ease;
+}
+
+.claim-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+/* Independence Day Button */
+.independence-theme .claim-btn {
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--green) 100%);
+  box-shadow: 0 4px 15px rgba(19, 136, 8, 0.3);
+}
+
+.independence-theme .claim-btn:hover {
+  box-shadow: 0 6px 20px rgba(19, 136, 8, 0.4);
+}
+
+.btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: btnShine 2s ease-in-out infinite;
+}
+
+@keyframes btnShine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+.widget-pulse {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  opacity: 0;
+  animation: widgetPulse 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes widgetPulse {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.05);
+  }
+}
+
+/* Independence Day Pulse */
+.independence-theme .widget-pulse {
+  background: linear-gradient(135deg, var(--saffron), var(--green));
+}
+
+/* Independence Day Confetti */
+.independence-confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.independence-confetti::before,
+.independence-confetti::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  opacity: 0;
+}
+
+.independence-confetti::before {
+  top: 20%;
+  left: 30%;
+  background-color: var(--saffron);
+  animation: confettiFall 3s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.independence-confetti::after {
+  top: 10%;
+  right: 30%;
+  background-color: var(--green);
+  animation: confettiFall 2.5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Minimized State */
+.floating-coupon-widget.minimized .widget-content {
+  display: none;
+}
+
+.widget-minimized {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: minimizedBounce 2s ease-in-out infinite;
+}
+
+@keyframes minimizedBounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.05);
+  }
+}
+
+/* Independence Day Minimized */
+.independence-theme .widget-minimized {
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--green) 100%);
+  box-shadow: 0 8px 25px rgba(19, 136, 8, 0.4);
+}
+
+/* Tricolor Rings for Minimized State */
+.tricolor-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.saffron-ring {
+  top: -30%;
+  left: -30%;
+  right: -30%;
+  height: 60%;
+  background-color: var(--saffron);
+}
+
+.white-ring {
+  top: 30%;
+  left: -30%;
+  right: -30%;
+  height: 40%;
+  background-color: var(--white);
+}
+
+.green-ring {
+  top: 70%;
+  left: -30%;
+  right: -30%;
+  height: 60%;
+  background-color: var(--green);
+}
+
+.widget-minimized:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(255, 107, 107, 0.5);
+}
+
+.minimized-icon {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.minimized-text {
+  color: white;
+  font-size: 8px;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  line-height: 1;
+}
+
+.minimized-pulse {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 107, 107, 0.6);
+  animation: minimizedPulse 2s ease-in-out infinite;
+}
+
+@keyframes minimizedPulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+.widget-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: glow 4s ease-in-out infinite;
+  z-index: -2;
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .floating-coupon-widget {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .widget-content {
+    width: 260px;
+  }
+  
+  .widget-body {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .preview-discount {
+    font-size: 28px;
+  }
+  
+  .coupon-title {
+    font-size: 13px;
+  }
+  
+  .widget-footer {
+    padding: 0 12px 12px;
+  }
+  
+  .claim-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-coupon-widget {
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .widget-content {
+    width: 240px;
+  }
+  
+  .widget-minimized {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .minimized-icon {
+    font-size: 16px;
+  }
+  
+  .minimized-text {
+    font-size: 7px;
+  }
+}
+
+/* Special Effects */
+.floating-coupon-widget::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(255, 107, 107, 0.1), transparent);
+  animation: rotate 8s linear infinite;
+  z-index: -3;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Notification Badge */
+.floating-coupon-widget::after {
+  content: 'NEW';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Independence Day Badge */
+.independence-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--green) 100%);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  animation: badgePulse 2s ease-in-out infinite;
+  z-index: 10;
+}
+
+/* Independence Day Glow */
+.independence-glow {
+  background: radial-gradient(
+    circle, 
+    rgba(255, 153, 51, 0.2) 0%, 
+    rgba(19, 136, 8, 0.1) 50%,
+    transparent 70%
+  );
+}
+
+/* Flag Waving Animation */
+.flag-waving .widget-content {
+  animation: flagWave 1.5s ease-in-out;
+}

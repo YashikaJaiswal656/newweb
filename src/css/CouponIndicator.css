@@ -1,0 +1,254 @@
+/* Coupon Indicator */
+.coupon-indicator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  animation: indicatorFloat 3s ease-in-out infinite;
+}
+
+@keyframes indicatorFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.coupon-indicator:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.coupon-icon {
+  font-size: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.coupon-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+  animation: countPulse 2s ease-in-out infinite;
+}
+
+@keyframes countPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.coupon-pulse {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 107, 107, 0.6);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+/* Tooltip */
+.coupon-tooltip {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 250px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+  animation: tooltipSlideIn 0.3s ease-out;
+}
+
+@keyframes tooltipSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.coupon-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 16px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #ffffff;
+}
+
+.tooltip-header {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.tooltip-coupons {
+  margin-bottom: 12px;
+}
+
+.tooltip-coupon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 8px;
+  margin-bottom: 6px;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.tooltip-coupon:last-child {
+  margin-bottom: 0;
+}
+
+.tooltip-code {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+.tooltip-discount {
+  font-size: 12px;
+  font-weight: 600;
+  color: #059669;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.tooltip-more {
+  text-align: center;
+  font-size: 12px;
+  color: #6b7280;
+  font-style: italic;
+  padding: 4px 0;
+}
+
+.tooltip-footer {
+  text-align: center;
+  font-size: 11px;
+  color: #9ca3af;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .coupon-indicator {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .coupon-icon {
+    font-size: 16px;
+  }
+  
+  .coupon-count {
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+    top: -6px;
+    right: -6px;
+  }
+  
+  .coupon-tooltip {
+    right: -50px;
+    min-width: 220px;
+  }
+  
+  .coupon-tooltip::before {
+    right: 66px;
+  }
+}
+
+@media (max-width: 480px) {
+  .coupon-indicator {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .coupon-icon {
+    font-size: 14px;
+  }
+  
+  .coupon-count {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    top: -5px;
+    right: -5px;
+  }
+  
+  .coupon-tooltip {
+    right: -80px;
+    min-width: 200px;
+    padding: 12px;
+  }
+  
+  .coupon-tooltip::before {
+    right: 96px;
+  }
+  
+  .tooltip-header {
+    font-size: 13px;
+  }
+  
+  .tooltip-code {
+    font-size: 11px;
+  }
+  
+  .tooltip-discount {
+    font-size: 11px;
+  }
+}

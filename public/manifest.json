@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Finike Lithium",
+  "name": "Finike Lithium - Leading Battery Manufacturer",
+  "description": "Leading manufacturer of lithium-ion batteries in Chandigarh & Punjab. Specializing in EV batteries, solar batteries, and energy storage solutions.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,10 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#005670",
+  "background_color": "#ffffff",
+  "categories": ["business", "manufacturing", "technology"],
+  "orientation": "any",
+  "scope": "/",
+  "lang": "en-US"
 }

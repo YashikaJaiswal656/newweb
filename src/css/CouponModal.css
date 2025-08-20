@@ -1,0 +1,748 @@
+/* Coupon Modal Styles - Independence Day Theme */
+
+/* Indian Flag Colors */
+:root {
+  --saffron: #FF9933;
+  --white: #FFFFFF;
+  --green: #138808;
+  --navy-blue: #000080;
+  --chakra-blue: #0000FF;
+}
+
+/* Independence Day Animations */
+@keyframes flagWave {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-1deg) scale(1.01);
+  }
+  50% {
+    transform: rotate(0deg) scale(1.02);
+  }
+  75% {
+    transform: rotate(1deg) scale(1.01);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes chakraSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tricolorShimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.coupon-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.coupon-modal {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 24px;
+  padding: 0;
+  max-width: 480px;
+  width: 90%;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.coupon-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.coupon-close-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.coupon-close-btn span {
+  font-size: 24px;
+  color: #6b7280;
+  line-height: 1;
+}
+
+.coupon-header {
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--white) 50%, var(--green) 100%);
+  padding: 32px 24px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: flagWave 6s ease-in-out infinite;
+}
+
+.coupon-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Ashoka Chakra */
+.coupon-header::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%);
+  background-color: var(--white);
+  border-radius: 50%;
+  opacity: 0.15;
+  z-index: 1;
+}
+
+.chakra-wheel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid var(--navy-blue);
+  z-index: 2;
+  opacity: 0.2;
+  animation: chakraSpin 10s linear infinite;
+}
+
+.chakra-wheel::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  background: 
+    repeating-conic-gradient(
+      var(--navy-blue) 0deg 15deg,
+      transparent 15deg 30deg
+    );
+  border-radius: 50%;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+}
+
+.coupon-fire-icon {
+  font-size: 48px;
+  margin-bottom: 0px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.coupon-title {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--navy-blue);
+  margin: 0 0 8px 0;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 5;
+}
+
+.coupon-subtitle {
+  font-size: 14px;
+  color: var(--navy-blue);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 5;
+}
+
+.coupon-timer {
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.timer-icon {
+  font-size: 20px;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.timer-text {
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.timer-countdown {
+  color: #fbbf24;
+  font-weight: 700;
+  font-size: 18px;
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+.coupon-content {
+  padding: 15px 24px;
+  text-align: center;
+}
+
+.coupon-discount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 1px;
+}
+
+.discount-percent {
+  font-size: 35px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--navy-blue) 50%, var(--green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  animation: scaleIn 0.6s ease-out 0.2s both;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.discount-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  align-self: flex-end;
+  margin-bottom: 8px;
+}
+
+.coupon-description h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.coupon-description p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+}
+
+.coupon-code-section {
+  margin: 24px 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.coupon-code-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.coupon-code-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.coupon-code {
+  background: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 24px 40px;
+  font-family: 'Arial', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--navy-blue) !important;
+  letter-spacing: 4px;
+  text-align: center;
+  min-width: 280px;
+  box-shadow: 
+    0 10px 30px rgba(19, 136, 8, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  animation: pulseCode 2s ease-in-out infinite;
+  position: relative;
+  z-index: 100;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  user-select: all;
+  position: relative;
+}
+
+/* Tricolor Border */
+.coupon-code::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(to bottom, var(--saffron), var(--white), var(--green));
+  border-radius: 16px;
+  z-index: -1;
+}
+
+/* Dashed Border Effect */
+.coupon-code::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px dashed var(--navy-blue);
+  border-radius: 10px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+@keyframes pulseCode {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(255, 107, 107, 0.3);
+  }
+}
+
+/* Removed old codeGlow animation */
+
+/* Removed complex animations that might hide text */
+
+/* Removed codeShimmer animation */
+
+.copy-btn {
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--green) 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(19, 136, 8, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.copy-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: tricolorShimmer 2s ease-in-out infinite;
+}
+
+.copy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(19, 136, 8, 0.4);
+}
+
+.copy-btn.copied {
+  background: linear-gradient(135deg, var(--navy-blue) 0%, var(--chakra-blue) 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 128, 0.3);
+}
+
+.code-instruction {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.code-instruction small {
+  color: #6b7280;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.coupon-terms {
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.coupon-actions {
+  padding: 0 24px 32px;
+}
+
+.shop-now-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--green) 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 18px 32px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(19, 136, 8, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.shop-now-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: tricolorShimmer 2s ease-in-out infinite;
+}
+
+.shop-now-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(19, 136, 8, 0.4);
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--navy-blue) 100%);
+}
+
+.coupon-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 24px 24px;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d1d5db;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.indicator.active {
+  background: var(--navy-blue);
+  transform: scale(1.2);
+}
+
+.coupon-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.decoration {
+  position: absolute;
+  font-size: 20px;
+  opacity: 0.15;
+  animation: float 6s ease-in-out infinite;
+}
+
+.decoration-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+  color: var(--saffron);
+}
+
+.decoration-2 {
+  top: 30%;
+  right: 15%;
+  animation-delay: 1.5s;
+  color: var(--green);
+}
+
+.decoration-3 {
+  bottom: 30%;
+  left: 15%;
+  animation-delay: 3s;
+  color: var(--navy-blue);
+}
+
+.decoration-4 {
+  bottom: 20%;
+  right: 10%;
+  animation-delay: 4.5s;
+  color: var(--saffron);
+}
+
+/* Confetti */
+.independence-confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+}
+
+.confetti-1 {
+  top: -5%;
+  left: 30%;
+  background-color: var(--saffron);
+  animation: confettiFall 3s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.confetti-2 {
+  top: -10%;
+  right: 40%;
+  background-color: var(--white);
+  animation: confettiFall 2.5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.confetti-3 {
+  top: -15%;
+  left: 60%;
+  background-color: var(--green);
+  animation: confettiFall 3.5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes confettiFall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(500px) rotate(720deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(240deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .coupon-modal {
+    max-width: 95%;
+    margin: 20px;
+  }
+  
+  .coupon-header {
+    padding: 24px 20px 20px;
+  }
+  
+  .coupon-title {
+    font-size: 24px;
+  }
+  
+  .coupon-content {
+    padding: 24px 20px;
+  }
+  
+  .discount-percent {
+    font-size: 48px;
+  }
+  
+  .discount-text {
+    font-size: 20px;
+  }
+  
+  .coupon-code-section {
+    margin: 20px 0;
+    padding: 16px;
+  }
+  
+  .coupon-code-label {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .coupon-code-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .coupon-code {
+    font-size: 24px;
+    padding: 20px 30px;
+    letter-spacing: 3px;
+    min-width: auto;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .copy-btn {
+    width: 100%;
+    padding: 14px 20px;
+  }
+  
+  .coupon-actions {
+    padding: 0 20px 24px;
+  }
+  
+  .shop-now-btn {
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .coupon-modal {
+    max-width: 100%;
+    margin: 10px;
+    border-radius: 16px;
+  }
+  
+  .coupon-fire-icon {
+    font-size: 36px;
+  }
+  
+  .coupon-title {
+    font-size: 20px;
+  }
+  
+  .discount-percent {
+    font-size: 40px;
+  }
+  
+  .discount-text {
+    font-size: 18px;
+  }
+}

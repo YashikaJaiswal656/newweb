@@ -1,0 +1,283 @@
+.card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.4rem;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-color: #3b82f6;
+}
+
+.card-image-container {
+  position: relative;
+  background: #f1f5f9;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 0.4rem;
+}
+
+.card-image {
+  width: 100%;
+  height: 140px;
+  object-fit: contain;
+  background: white;
+}
+
+.card-badge {
+  position: absolute;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card-badge.discount {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.card-badge.warranty {
+  background: linear-gradient(135deg, #8b5cf6, #6b21a8);
+}
+
+.card-badge.new {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.card-badge.bestseller {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.card-badge.local {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.badge-text {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.badge-label {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.card-stock-warning {
+  position: absolute;
+  bottom: 0.4rem;
+  right: 0.4rem;
+  background: #fef3c7;
+  color: #92400e;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.card-stock-warning.out-of-stock {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0 0.4rem;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.star-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.star-filled {
+  fill: #fbbf24;
+}
+
+.star-half {
+  fill: #fbbf24;
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+.star-empty {
+  fill: #d1d5db;
+}
+
+.rating-reviews {
+  font-size: 10px;
+  color: #64748b;
+}
+
+.card-price {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.discounted-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #dc2626;
+}
+
+.original-price {
+  font-size: 12px;
+  color: #64748b;
+  text-decoration: line-through;
+}
+
+.card-features {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+}
+
+.card-features li {
+  font-size: 12px;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.feature-icon {
+  color: #22c55e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.no-features {
+  color: #64748b;
+  font-style: italic;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.add-to-cart-btn,
+.share-btn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.add-to-cart-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+  color: white;
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(234, 88, 12, 0.2);
+}
+
+.share-btn {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.share-btn:hover {
+  background: #d1d5db;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-to-cart-btn:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-icon {
+  width: 12px;
+  height: 20px;
+  margin: 3px;
+}
+
+.card-quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 4px;
+  padding: 4px 0;
+  background: #f8fafc;
+  border-radius: 6px;
+}
+
+.quantity-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quantity-btn:hover:not(:disabled) {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.quantity-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantity-display {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e293b;
+  min-width: 20px;
+  text-align: center;
+}
