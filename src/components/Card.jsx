@@ -88,7 +88,7 @@ const Card = () => {
   };
 
   return (
-    <section className="infrastructure-section">
+    <section className="infrastructure-section" style={{opacity:"1"}}>
       <div className="decorative-bg">
         <div className="bg-circle bg-circle-1"></div>
         <div className="bg-circle bg-circle-2"></div>
