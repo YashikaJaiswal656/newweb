@@ -262,7 +262,10 @@ function ModernFooter() {
           font-size: 1.2rem;
           font-weight: 700;
           margin-bottom: 16px;
-          color: #00D4FF;
+            background: linear-gradient(90deg, #ff758c, #ffb347, #ff758c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
           position: relative;
         }
 
@@ -276,7 +279,7 @@ function ModernFooter() {
           left: 0;
           width: 30px;
           height: 2px;
-          background: linear-gradient(90deg, #00D4FF 0%, #40E0D0 100%);
+background: linear-gradient(90deg, #ff758c, #ffb347, #ff758c);
           border-radius: 2px;
         }
 
@@ -374,7 +377,7 @@ function ModernFooter() {
           width: 32px;
           height: 32px;
           border-radius: 8px;
-          background: linear-gradient(135deg, #00D4FF, #40E0D0);
+          background: linear-gradient(90deg, #ff758c, #ffb347, #ff758c);
           color: #ffffff;
           font-size: 0.9rem;
           flex-shrink: 0;
@@ -384,7 +387,10 @@ function ModernFooter() {
           font-size: 0.9rem;
           font-weight: 600;
           margin-bottom: 6px;
-          color: #00D4FF;
+            background: linear-gradient(90deg, #ff758c, #ffb347, #ff758c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
         }
 
         .contact-details p, .contact-details a {
@@ -396,7 +402,10 @@ function ModernFooter() {
         }
 
         .contact-details a:hover {
-          color: #00D4FF;
+                      background: linear-gradient(90deg, #ff758c, #ffb347, #ff758c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
         }
 
         .address-group p {
@@ -439,7 +448,10 @@ function ModernFooter() {
         }
 
         .footer-link:hover {
-          color: #00D4FF;
+                      background: linear-gradient(90deg, #ff758c, #ffb347, #ff758c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
           transform: translateX(6px);
         }
 
@@ -478,13 +490,19 @@ function ModernFooter() {
         }
 
         .copyright-content a {
-          color: #00D4FF;
+                      background: linear-gradient(90deg, #ff758c, #ffb347, #ff758c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
           text-decoration: none;
           transition: color 0.3s ease;
         }
 
         .copyright-content a:hover {
-          color: #40E0D0;
+                      background: linear-gradient(90deg, #ff758c, #ffb347, #ff758c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
         }
 
         .tagline {

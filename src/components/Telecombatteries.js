@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "../css/telecombatteries.css";
-import telecombatteryvideo from "../video/Telecom Batteries Introduction_free.mp4";
+
 import telecombatteriescatalogue from '../assets/catalogues/(V3).pdf'; 
 import pdfimg from "../img/pdf.png";
 
@@ -127,7 +127,7 @@ function TelecomBatteries(props) {
           muted
           loop
           playsInline
-          src={telecombatteryvideo}
+          
           aria-label="Introduction to Finike Lithium Telecom Batteries"
           className="video-bg"
         />

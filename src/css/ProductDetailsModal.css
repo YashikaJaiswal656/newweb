@@ -484,19 +484,6 @@
       flex-shrink: 0;
     }
 
-    .card-title {
-      font-size: clamp(0.75rem, 2vw, 0.875rem);
-      font-weight: 600;
-      color: var(--text-dark);
-      margin: 0 0 0.125rem 0;
-    }
-
-    .card-description,
-    .card-highlight {
-      font-size: clamp(0.625rem, 1.8vw, 0.75rem);
-      color: var(--text-muted);
-      margin: 0 0 0.125rem 0;
-    }
 
     .card-highlight {
       color: var(--primary-blue);
@@ -2304,8 +2291,6 @@
       .stock-count,
       .low-stock-warning,
       .product-meta,
-      .card-title,
-      .card-description,
       .card-highlight,
       .quantity-label,
       .quantity-display,

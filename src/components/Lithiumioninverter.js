@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
 import "../css/lithiumioninverter.css";
-import LithiumIonInverterVideo from '../video/LithiumIon Inverters Introduction_free.mp4';
+import '../css/warrenty.css'
 import lithiumIonBatteriescatalogue from '../assets/catalogues/(V2).pdf';
 import inverterimage from '../img/lithiumintegratedinverter.JPG';
 import pdfimg from '../img/pdf.png';
+import Slider from "./Slider";
+import Benefits from "./Benefits";
+import Modal from "./Modal";
+import Faq from "./Faq";
+import Catalog from "./Catalog";
 
 const catalogProduct = {
   img: "inverter-1.jpg",
@@ -88,223 +93,167 @@ function LithiumIonInverter(props) {
   }, []);
 
   return (
-    <div className="inverter-wrapper">
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossOrigin="anonymous"
-        referrerPolicy="no-referrer"
-      />
-
-      <section className="hero">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          src={LithiumIonInverterVideo}
-          aria-label="Introduction to Lithium-Ion Inverters at Finike Lithium"
-          className="video-bg"
-        />
+    <>
+    <section className="slider-section" style={{opacity:"1"}}>
+        <div className="video-overlay"></div>
+        <video autoPlay loop muted playsInline className="video-bg" id='homevd' aria-label="Finike Lithium manufacturing overview">
+          <source src="https://finikelithium.com/static/media/LithiumIon%20Inverters%20Introduction_free.9e870d11d8e68e34829f.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </section>
+    <div className="premium-showcase">
 
-      <section id="features" className="why-inverter-section">
-        <div className="container">
-          <h2 className="animate-letters">
-            <i className="fas fa-star section-icon"></i> Why Choose Our Inverters?
-          </h2>
-          <div className="why-inverter-card animate-slide">
-            <div className="why-inverter-list">
-              <div className="why-inverter-item animate-slide">
-                <i className="fas fa-tachometer-alt why-inverter-icon"></i>
-                <div>
-                  <h3>High Efficiency</h3>
-                  <p>Up to 98% conversion efficiency to reduce energy costs and emissions.</p>
-                </div>
-              </div>
-              <div className="why-inverter-item animate-slide">
-                <i className="fas fa-leaf why-inverter-icon"></i>
-                <div>
-                  <h3>Eco-Friendly</h3>
-                  <p>Built with recyclable materials to minimize environmental impact.</p>
-                </div>
-              </div>
-              <div className="why-inverter-item animate-slide">
-                <i className="fas fa-shield-alt why-inverter-icon"></i>
-                <div>
-                  <h3>Durability</h3>
-                  <p>Designed for 15+ years of reliable, low-maintenance performance.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="benefits" className="benefits">
-        <div className="container">
-          <h2 className="animate-letters">Key Benefits</h2>
-          <div className="benefit-list">
-            {[
-              {
-                title: "Energy Savings",
-                desc: "Lower energy consumption, leading to reduced electricity costs.",
-                icon: "fa-bolt",
-              },
-              {
-                title: "Eco-Conscious Design",
-                desc: "LiFePO4/Lithium technology that minimizes environmental impact.",
-                icon: "fa-globe",
-              },
-              {
-                title: "Long Lifespan",
-                desc: "Provides reliable power for up to 15 years with minimal maintenance.",
-                icon: "fa-clock",
-              },
-            ].map((benefit, index) => (
-              <div key={index} className="application animate-slide">
-                <i className={`fas ${benefit.icon} benefit-icon`}></i>
-                <h3>{benefit.title}</h3>
-                <p>{benefit.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="comparison" className="products-section">
-        <div className="container">
-          <h2 className="animate-letters">Our Inverter Models</h2>
-          <div className="product-grid">
-            {[
-              {
-                img: inverterimage,
-                title: "Lithium-Ion Inverter 1100VA",
-                desc: "High-efficiency inverter with up to 98% conversion rate for small-scale applications.",
-                alt: "Lithium-Ion Inverter 1100VA",
-              },
-              {
-                img: inverterimage,
-                title: "Lithium-Ion Inverter 2100VA",
-                desc: "Reliable power solution with 98% efficiency for medium-scale needs.",
-                alt: "Lithium-Ion Inverter 2100VA",
-              },
-              {
-                img: inverterimage,
-                title: "Lithium-Ion Inverter 3500VA",
-                desc: "Robust inverter delivering 98% efficiency for larger residential setups.",
-                alt: "Lithium-Ion Inverter 3500VA",
-              },
-              {
-                img: inverterimage,
-                title: "Lithium-Ion Inverter 5000VA",
-                desc: "High-capacity inverter with 98% efficiency for commercial applications.",
-                alt: "Lithium-Ion Inverter 5000VA",
-              },
-              {
-                img: inverterimage,
-                title: "Lithium-Ion Inverter 7500VA",
-                desc: "Powerful inverter with 98% efficiency for heavy-duty industrial use.",
-                alt: "Lithium-Ion Inverter 7500VA",
-              },
-              {
-                img: inverterimage,
-                title: "Lithium-Ion Inverter 10000VA",
-                desc: "Top-tier inverter with 98% efficiency for large-scale industrial systems.",
-                alt: "Lithium-Ion Inverter 10000VA",
-              },
-            ].map((item, index) => (
-              <div key={index} className="product-card animate-slide">
-                <img
-                  decoding="async"
-                  src={item.img}
-                  alt={item.alt}
-                />
-                <i className="fas fa-plug product-icon"></i>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" className="faq">
-        <div className="container">
-          <h2 className="animate-letters">
-            <i className="fas fa-question-circle section-icon"></i> Frequently Asked Questions
-          </h2>
-          <div className="faq-list">
-            {[
-              {
-                question: "What is a lithium-ion inverter?",
-                answer:
-                  "A lithium-ion inverter converts DC from a lithium-ion battery to AC, efficiently powering appliances and devices.",
-              },
-              {
-                question: "Why choose a lithium-ion inverter?",
-                answer:
-                  "They provide higher efficiency, longer lifespan, and a compact design compared to lead-acid inverters.",
-              },
-              {
-                question: "How long does a lithium-ion inverter last?",
-                answer:
-                  "Our inverters offer 10–15 years of reliable performance with proper maintenance.",
-              },
-            ].map((faq, index) => (
-              <div key={index} className="faq-item animate-slide">
-                <button className="faq-toggle">
-                  <span>{faq.question}</span>
-                </button>
-                <div className="faq-content">
-                  <p>{faq.answer}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="catalog-section">
-        <div className="container">
-          <h2 className="animate-letters">
-            <i className="fas fa-book section-icon"></i> Lithium-Ion Inverter/UPS Catalog
-          </h2>
-          <p className="section-subtitle animate-slide">
-            Discover our high-efficiency lithium-ion inverter designed for reliability.
-          </p>
-          <div className="catalog-grid">
-            <div className="catalog-item animate-slide">
-              <div className="catalog-card">
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src={pdfimg}
-                  alt={catalogProduct.title}
-                  className="catalog-image"
-                />
-                <div className="catalog-text">
-                  <h3>{catalogProduct.title}</h3>
-                  <p>{catalogProduct.description}</p>
-                  <span className="category">{catalogProduct.category}</span>
-                  <a
-                    href={catalogProduct.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="catalog-link cta-button"
-                    aria-label={`View ${catalogProduct.title} catalog`}
-                  >
-                    View Catalog
-                  </a>
-                </div>
-              </div>
-            </div>
+      <div className="ambient-orb orb-primary"></div>
+      <div className="ambient-orb orb-secondary"></div>
+      <div className="ambient-orb orb-accent"></div>
+      <div className="ambient-orb orb-subtle"></div>
+      
+      
+      <div className="showcase-container">
+        
+        <div className="section-header">
+          
+          <h1 className="main-title">
+            Why Choose Finike Lithium?
+          </h1>
+          <div className="heading-decoration">
+            <div className="deco-segment"></div>
+            <div className="deco-center"></div>
+            <div className="deco-segment"></div>
           </div>
           
         </div>
-      </section>
-    </div>
+
+        {/* Asymmetric Feature Layout */}
+        <div className="features-layout">
+          
+          {/* Left Column - Stacked Cards */}
+          <div className="left-column">
+            
+            {/* Efficiency Card */}
+            <div className="feature-cardd card-efficiency">
+              <div className="card-overlay"></div>
+              <div className="card-content">
+                <div className="durability-header" style={{marginBottom:"1px"}}>
+                  <div className="icon-background efficiency-bg"><div className="feature-icone">E</div></div>
+                  <h3 className="card-title">Maximum Efficiency</h3>
+                </div>
+                
+                <div className="efficiency-metrics">
+                  <div className="metric-display">
+                    <span className="metric-value">98</span>
+                    <span className="metric-unit">%</span>
+                  </div>
+                  <div className="metric-bar">
+                    <div className="bar-fill efficiency-fill"></div>
+                  </div>
+                  <p className="metric-label">Conversion Rate</p>
+                </div>
+                <p className="card-description">
+                   
+                  Maximizing energy harvest from every solar panel.
+                </p>
+              </div>
+            </div>
+
+            {/* Eco Card */}
+            <div className="feature-cardd card-eco">
+              <div className="card-overlay"></div>
+              <div className="card-content">
+                <div className="durability-header" style={{marginBottom:"1px"}}>
+                  <div className="icon-background eco-bg"><div className="feature-icone">R</div></div>
+                  <h3 className="card-title">Sustainable Design</h3>
+                </div>
+                
+                
+                <div className="eco-indicators">
+                  <div className="eco-badge">
+                    <span className="badge-textt">100% Recyclable Materials</span>
+                  </div>
+                  <div className="eco-badge">
+                    <span className="badge-textt">Zero Waste Manufacturing</span>
+                  </div>
+                </div>
+                <p className="card-description">
+                  Constructed with fully recyclable components 
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Single Large Card */}
+          <div className="right-column">
+            <div className="feature-cardd card-durability">
+              <div className="card-overlay"></div>
+              <div className="card-content">
+                <div className="durability-header">
+                  <div className="feature-icon-container">
+                    <div className="icon-background durability-bg"><div className="feature-icone">D</div></div>
+                    
+                  </div>
+                  <div className="header-text">
+                    <h3 className="card-title">Built for Longevity</h3>
+                    <p className="card-subtitle">25+ Years of Reliable Performance</p>
+                  </div>
+                </div>
+                
+                <div className="durability-showcase">
+                  <div className="lifespan-visual">
+                    <div className="timeline-container">
+                      <div className="timeline-track"></div>
+                      <div className="timeline-progress"></div>
+                      <div className="timeline-points">
+                        <div className="time-point active" data-year="5Y"></div>
+                        <div className="time-point active" data-year="10Y"></div>
+                        <div className="time-point active" data-year="15Y"></div>
+                        <div className="time-point active" data-year="20Y"></div>
+                        <div className="time-point highlighted" data-year="25Y+"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="durability-stats">
+                    <div className="stat-group">
+                      <div className="stat-item">
+                        <span className="stat-number">25+</span>
+                        <span className="stat-label">Years Warranty</span>
+                      </div>
+                      <div className="stat-item">
+                        <span className="stat-number">99.9%</span>
+                        <span className="stat-label">Reliability</span>
+                      </div>
+                      <div className="stat-item">
+                        <span className="stat-number">IP67</span>
+                        <span className="stat-label">Protection Rating</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="card-description">
+                  Rigorously tested for extreme weather conditions, featuring 
+                  premium-grade components and advanced protective systems 
+                  for unmatched long-term reliability.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Accent Line */}
+        <div className="closing-accent">
+          <div className="accent-line"></div>
+          <div className="accent-dot"></div>
+          <div className="accent-line"></div>
+        </div>
+      </div>
+      
+</div>
+<Benefits/>
+<Modal/>
+<Faq/>
+<Catalog/>
+    </>
   );
 }
 

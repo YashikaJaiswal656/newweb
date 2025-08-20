@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "../css/lithiumionbatteries.css";
-import Lithiumionbatteriesvideo from "../video/Introduction to LithiumIon Batteries_free.mp4";
+
 import twowheelerbattries from "../img/twowheeler.JPG";
 
 import twow from '../img/twow.jpeg';

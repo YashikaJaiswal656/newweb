@@ -133,11 +133,6 @@ body {
 .feature-item:nth-child(2) { transition-delay: 0.3s; }
 .feature-item:nth-child(3) { transition-delay: 0.5s; }
 
-.feature-icon {
-  font-size: 1.5rem;
-  margin-right: 1.5rem;
-  margin-top: 0.25rem;
-}
 
 .feature-text h3 {
   font-size: 1.25rem;

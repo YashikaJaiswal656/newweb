@@ -1,0 +1,471 @@
+.hero-wrapper {
+  height: fit-content;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  
+}
+
+.ambient-sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.25;
+  animation: drift 12s ease-in-out infinite;
+}
+
+.sphere-alpha { 
+  top: 5%; 
+  right: 15%; 
+  width: 280px; 
+  height: 280px; 
+  background: linear-gradient(45deg, #ff758c, #ffb347); 
+}
+
+.sphere-beta { 
+  bottom: 20%; 
+  left: 10%; 
+  width: 320px; 
+  height: 320px; 
+  background: linear-gradient(45deg, #6f86d6, #48c6ef); 
+  animation-delay: 4s; 
+}
+
+.sphere-gamma { 
+  top: 40%; 
+  right: 60%; 
+  width: 200px; 
+  height: 200px; 
+  background: linear-gradient(45deg, #a8edea, #fed6e3); 
+  animation-delay: 8s; 
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  max-width: 1200px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  position: relative;
+  z-index: 10;
+}
+
+.brand-showcase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  position: relative;
+}
+
+.logo-frame {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.energy-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid;
+  opacity: 0;
+  animation: energyPulse 4s ease-in-out infinite;
+}
+
+.ring-primary {
+  width: 80px; 
+  height: 80px;
+  border-color: #ff758c;
+  animation-delay: 0s;
+}
+
+.ring-secondary {
+  width: 100px; 
+  height: 100px;
+  border-color: #6f86d6;
+  animation-delay: 1.3s;
+}
+
+.ring-tertiary {
+  width: 120px; 
+  height: 120px;
+  border-color: #ffb347;
+  animation-delay: 2.6s;
+}
+
+.brand-symbol {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(45deg, #ff758c, #ffb347);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 28px;
+  box-shadow: 0 15px 40px rgba(255, 117, 140, 0.4);
+  position: relative;
+  z-index: 5;
+}
+
+.company-badge {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 50px;
+  padding: 12px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge-text, .badge-location {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 1px;
+}
+
+.badge-divider {
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(45deg, #ff758c, #ffb347);
+  border-radius: 50%;
+}
+
+.content-panel {
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+}
+
+.section-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.tag-icon {
+  color: #ff758c;
+  font-size: 0.8rem;
+}
+
+.tag-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 2px;
+}
+
+.primary-heading {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #1e293b;
+  margin: 0;
+  letter-spacing: -3px;
+  line-height: 1.1;
+}
+
+.heading-accent {
+  background: linear-gradient(45deg, #6f86d6, #48c6ef);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.story-block {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+.paragraph-marker {
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(45deg, #ff758c, #ffb347);
+  border-radius: 50%;
+  margin-top: 12px;
+  flex-shrink: 0;
+}
+
+.narrative-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0;
+  font-weight: 400;
+}
+
+.emphasis-text {
+  background: linear-gradient(45deg, #6f86d6, #48c6ef);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+.footer-elements {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.progress-dots {
+  display: flex;
+  gap: 12px;
+}
+
+.dot-element {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(100, 116, 139, 0.3);
+  transition: all 0.3s ease;
+}
+
+.dot-element.active {
+  background: linear-gradient(45deg, #ff758c, #ffb347);
+  box-shadow: 0 0 15px rgba(255, 117, 140, 0.5);
+}
+
+.separator-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+}
+
+.side-indicators {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  z-index: 15;
+}
+
+.indicator-item {
+  width: 3px;
+  height: 40px;
+  background: rgba(100, 116, 139, 0.2);
+  border-radius: 3px;
+  transition: all 0.4s ease;
+}
+
+.indicator-item.current {
+  background: linear-gradient(180deg, #ff758c, #ffb347);
+  box-shadow: 0 0 20px rgba(255, 117, 140, 0.4);
+}
+
+@keyframes drift {
+  0%, 100% { 
+    transform: translate(0, 0) rotate(0deg); 
+  }
+  33% { 
+    transform: translate(-30px, -30px) rotate(120deg); 
+  }
+  66% { 
+    transform: translate(30px, -15px) rotate(240deg); 
+  }
+}
+
+@keyframes energyPulse {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.8); 
+  }
+  50% { 
+    opacity: 0.8; 
+  }
+  100% { 
+    opacity: 0; 
+    transform: scale(1.4); 
+  }
+}
+@media (max-width: 768px) {
+  .hero-wrapper { 
+    padding: 40px 15px; 
+    min-height: 100vh;
+  }
+  
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 30px 20px;
+    border-radius: 25px;
+    max-width: calc(100% - 20px);
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  
+  .content-panel {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    box-sizing: border-box;
+  }
+  
+  .main-title, .primary-heading { 
+    font-size: 2.2rem; 
+    letter-spacing: -1px;
+    line-height: 1.2;
+    word-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+  }
+  
+  .narrative-text { 
+    font-size: 1rem;
+    line-height: 1.6;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .story-block {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin: 15px 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .paragraph-marker {
+    width: 4px;
+    height: 4px;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  
+  .side-indicators { 
+    display: none; 
+  }
+  
+  .brand-showcase {
+    order: 2;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+  }
+  
+  .content-panel { 
+    order: 1;
+    width: 100%;
+  }
+  
+  .section-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-wrapper {
+    padding: 20px 10px;
+  }
+  
+  .content-grid { 
+    padding: 25px 15px;
+    gap: 30px;
+    border-radius: 20px;
+    max-width: calc(100% - 10px);
+    margin: 0 auto;
+  }
+  
+  .main-title, .primary-heading { 
+    font-size: 1.8rem;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+  }
+  
+  .narrative-text { 
+    font-size: 0.9rem; 
+    line-height: 1.5;
+  }
+  
+  .story-block {
+    gap: 12px;
+    margin: 12px 0;
+  }
+  
+  .logo-frame { 
+    width: 70px; 
+    height: 70px; 
+  }
+  
+  .brand-symbol { 
+    width: 45px; 
+    height: 45px; 
+    font-size: 18px; 
+  }
+  
+  .company-badge {
+    padding: 8px 16px;
+    gap: 10px;
+  }
+  
+  .badge-text, .badge-location {
+    font-size: 0.8rem;
+  }
+  
+  .section-tag {
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  
+  .tag-label {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-wrapper {
+    padding: 15px 8px;
+  }
+  
+  .content-grid {
+    padding: 20px 12px;
+    max-width: calc(100% - 5px);
+  }
+  
+  .main-title, .primary-heading {
+    font-size: 1.6rem;
+  }
+  
+  .narrative-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  
+  .story-block {
+    gap: 10px;
+  }
+}

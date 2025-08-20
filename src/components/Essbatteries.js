@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "../css/essbatteries.css";
-import telecombattery from "../video/Introduction to ESS Battery at Finike Lithium_free.mp4";
+
 import essbatteriesimg from "../img/essimage.jpeg";
 import essBatteriescatalogue from "../assets/catalogues/(V3).pdf"; 
 import pdfimg from "../img/pdf.png";
@@ -127,7 +127,7 @@ function EssBatteries(props) {
           muted
           loop
           playsInline
-          src={telecombattery}
+          
           aria-label="Introduction to ESS Battery at Finike Lithium"
           className="video-bg"
         />
