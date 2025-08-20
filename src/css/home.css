@@ -157,3 +157,22 @@
     padding: 0 10px;
   }
 }
+@media (max-width:480px) {
+  
+      #homevd {
+        height: 360px;
+    }
+    .video-bg {
+
+    left: 0;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+    .slider-section{
+      min-height: unset !important;
+      height: 45vh !important;
+    }
+}
