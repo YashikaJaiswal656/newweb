@@ -180,188 +180,261 @@ function TechnicalSupport() {
         </div>
       </section>
 
-      <section id="support-form" className="tech-support-form-section">
-        <div className="container">
-          <h2 className="animate-letters">Submit Your Support Request</h2>
-          <p className="animate-slide">
-            Provide details about your issue, and our team will respond promptly.
-          </p>
+      <section id="support-form" className="hero-wrapper">
+  {/* Ambient background orbs */}
+  <div className="ambient-sphere sphere-alpha"></div>
+  <div className="ambient-sphere sphere-beta"></div>
+  <div className="ambient-sphere sphere-gamma"></div>
 
-          {status.error && (
-            <div className="error-message animate-slide">
-              <h3>Error</h3>
-              <p>{status.error}</p>
-            </div>
-          )}
+  {/* Header Card */}
+  <div className="products-header">
+    <div className="header-card">
+      <div className="header-icon">
+        <i className="fas fa-tools"></i>
+      </div>
+      <h2 className="gradient-title">Submit Your Support Request</h2>
+    </div>
+  </div>
 
-          {status.success && (
-            <div className="success-message animate-slide">
-              <h3>Request Submitted</h3>
-              <p>{status.success}</p>
-              <button className="btn-glow animate-pop" onClick={handleReset}>
-                Submit Another Request
-              </button>
-            </div>
-          )}
+  {/* Form Section */}
+  <section className="registration-section">
+    <div className="container">
+      <div className="form-wrapperr">
+        <div className="form-header">
+          <div className="priority-badge">
+            <span className="priority-dot"></span>
+            Technical Assistance
+          </div>
+          <h2>Support Request Form</h2>
+          <p>Provide details about your issue for quick resolution</p>
+        </div>
 
-          {!status.success && (
-            <div className="support-form-card animate-slide">
-              <form onSubmit={handleSubmit} className="tech-support-form" noValidate>
-                <div className="form-row">
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your Name"
-                      aria-required="true"
-                    />
-                    {errors.name && <span className="error">{errors.name}</span>}
-                  </div>
-                  <div className="form-group">
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="Your Email"
-                      aria-required="true"
-                    />
-                    {errors.email && <span className="error">{errors.email}</span>}
-                  </div>
+        {/* Show error */}
+        {status.error && (
+          <div className="error-message animate-slide">
+            <h3>⚠️ Error</h3>
+            <p>{status.error}</p>
+          </div>
+        )}
+
+        {/* Show success */}
+        {status.success ? (
+          <div className="success-message animate-slide">
+            <h3>✅ Request Submitted</h3>
+            <p>{status.success}</p>
+            <button className="cta-button" onClick={handleReset}>
+              Submit Another Request
+            </button>
+          </div>
+        ) : (
+          <form
+            onSubmit={handleSubmit}
+            className="registration-form"
+            noValidate
+          >
+            <div className="form-grid">
+              {/* Name */}
+              <div className="input-group">
+                <label>Full Name</label>
+                <div className="input-wrapper">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Enter your full name"
+                  />
+                  <div className="input-icon">👤</div>
                 </div>
-                <div className="form-row">
-                  <div className="form-group">
-                    <input
-                      type="tel"
-                      id="mobile"
-                      name="mobile"
-                      value={formData.mobile}
-                      onChange={handleChange}
-                      placeholder="Your Phone Number"
-                      aria-required="true"
-                    />
-                    {errors.mobile && <span className="error">{errors.mobile}</span>}
-                  </div>
-                  <div className="form-group">
-                    <select
-                      id="product"
-                      name="product"
-                      value={formData.product}
-                      onChange={handleChange}
-                      aria-required="true"
-                    >
-                      <option value="">Select a Product</option>
-                      <optgroup label="Inverters">
-                        <option value="1100VA">1100 VA Inverter</option>
-                        <option value="2100VA">2100 VA Inverter</option>
-                        <option value="3500VA">3.5 KVA Inverter</option>
-                        <option value="5000VA">5 KVA Inverter</option>
-                        <option value="7500VA">7.5 KVA Inverter</option>
-                        <option value="10000VA">10 KVA Inverter</option>
-                      </optgroup>
-                      <optgroup label="Batteries">
-                        <option value="48V_100Ah">48V 100Ah Battery</option>
-                        <option value="48V_200Ah">48V 200Ah Battery</option>
-                        <option value="51.2V_200Ah">51.2V 100Ah Battery</option>
-                        <option value="51.2V_200Ah">51.2V 200Ah Battery</option>
-                      </optgroup>
-                    </select>
-                    {errors.product && <span className="error">{errors.product}</span>}
-                  </div>
+                {errors.name && <span className="error">{errors.name}</span>}
+              </div>
+
+              {/* Email */}
+              <div className="input-group">
+                <label>Email Address</label>
+                <div className="input-wrapper">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your.email@example.com"
+                  />
+                  <div className="input-icon">📧</div>
                 </div>
-                <div className="form-row">
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      id="serialno"
-                      name="serialno"
-                      value={formData.serialno}
-                      onChange={handleChange}
-                      placeholder="Product Serial Number"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <select
-                      id="service_issue"
-                      name="service_issue"
-                      value={formData.service_issue}
-                      onChange={handleChange}
-                      aria-required="true"
-                    >
-                      <option value="">Choose an Issue</option>
-                      <option value="product_issue">Product Not Working (e.g., inverter or battery issues)</option>
-                      <option value="after_sales_service">Repair or Support Issue</option>
-                      <option value="delivery_issue">Delivery Issue (e.g., late or damaged)</option>
-                     
-                      <option value="installation_issue">Setup Problem</option>
-                      <option value="warranty_issue">Warranty Problem</option>
-                      <option value="other">Other (describe below)</option>
-                    </select>
-                    {errors.service_issue && <span className="error">{errors.service_issue}</span>}
-                    {isOtherSelected && (
-                      <div className="form-group">
-                        <label htmlFor="other_issue_description">Describe Your Issue</label>
-                        <input
-                          type="text"
-                          id="other_issue_description"
-                          name="other_issue_description"
-                          value={formData.other_issue_description}
-                          onChange={handleChange}
-                          placeholder="Tell us more about the issue"
-                          className="form-control"
-                          aria-required="true"
-                        />
-                        {errors.other_issue_description && (
-                          <span className="error">{errors.other_issue_description}</span>
-                        )}
-                      </div>
-                    )}
-                  </div>
+                {errors.email && <span className="error">{errors.email}</span>}
+              </div>
+
+              {/* Mobile */}
+              <div className="input-group">
+                <label>Mobile Number</label>
+                <div className="input-wrapper">
+                  <input
+                    type="tel"
+                    id="mobile"
+                    name="mobile"
+                    value={formData.mobile}
+                    onChange={handleChange}
+                    placeholder="+91 98765 43210"
+                  />
+                  <div className="input-icon">📱</div>
                 </div>
-                <div className='form-row'>
-                    <div className="form-group">
-                    <input
-                      type="tel"
-                      id="pincode"
-                      name="pincode"
-                      value={formData.pincode}
-                      onChange={handleChange}
-                      placeholder="Your pin code"
-                      aria-required="true"
-                    />
-                    {errors.pincode && <span className="error">{errors.pincode}</span>}
-                  </div>
-                    <div className="form-group">
+                {errors.mobile && <span className="error">{errors.mobile}</span>}
+              </div>
+
+              {/* Product Select */}
+              <div className="input-group">
+                <label>Select a Product</label>
+                <div className="select-wrapper">
+                  <select
+                    id="product"
+                    name="product"
+                    value={formData.product}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select a Product</option>
+                    <optgroup label="Inverters">
+                      <option value="1100VA">🔌 1100 VA Inverter</option>
+                      <option value="2100VA">🔌 2100 VA Inverter</option>
+                      <option value="3500VA">⚡ 3.5 KVA Inverter</option>
+                      <option value="5000VA">⚡ 5 KVA Inverter</option>
+                      <option value="7500VA">⚡ 7.5 KVA Inverter</option>
+                      <option value="10000VA">⚡ 10 KVA Inverter</option>
+                    </optgroup>
+                    <optgroup label="Batteries">
+                      <option value="48V_100Ah">🔋 48V 100Ah Battery</option>
+                      <option value="48V_200Ah">🔋 48V 200Ah Battery</option>
+                      <option value="51.2V_100Ah">🔋 51.2V 100Ah Battery</option>
+                      <option value="51.2V_200Ah">🔋 51.2V 200Ah Battery</option>
+                    </optgroup>
+                  </select>
+                </div>
+                {errors.product && (
+                  <span className="error">{errors.product}</span>
+                )}
+              </div>
+
+              {/* Serial Number */}
+              <div className="input-group">
+                <label>Product Serial Number</label>
+                <div className="input-wrapper">
+                  <input
+                    type="text"
+                    id="serialno"
+                    name="serialno"
+                    value={formData.serialno}
+                    onChange={handleChange}
+                    placeholder="SN123456789"
+                  />
+                  <div className="input-icon">🏷️</div>
+                </div>
+              </div>
+
+              {/* Issue Select */}
+              <div className="input-group">
+                <label>Choose an Issue</label>
+                <div className="select-wrapper">
+                  <select
+                    id="service_issue"
+                    name="service_issue"
+                    value={formData.service_issue}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select an Issue</option>
+                    <option value="product_issue">⚠️ Product Not Working</option>
+                    <option value="after_sales_service">🔧 Repair / Support</option>
+                    <option value="delivery_issue">📦 Delivery Issue</option>
+                    <option value="installation_issue">🔩 Installation Problem</option>
+                    <option value="warranty_issue">🛡️ Warranty Problem</option>
+                    <option value="other">❓ Other</option>
+                  </select>
+                </div>
+                {errors.service_issue && (
+                  <span className="error">{errors.service_issue}</span>
+                )}
+              </div>
+
+              {/* Pin Code */}
+              <div className="input-group">
+                <label>Pin Code</label>
+                <div className="input-wrapper">
+                  <input
+                    type="text"
+                    id="pincode"
+                    name="pincode"
+                    value={formData.pincode}
+                    onChange={handleChange}
+                    placeholder="400001"
+                  />
+                  <div className="input-icon">📍</div>
+                </div>
+                {errors.pincode && (
+                  <span className="error">{errors.pincode}</span>
+                )}
+              </div>
+
+              {/* Message */}
+              <div className="input-group full-width">
+                <label>Describe the Issue in Detail</label>
+                <div className="input-wrapper">
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Describe the Issue in Detail"
-                    rows="4"
-                    aria-required="true"
+                    placeholder="Please provide detailed info about the issue..."
+                    rows="5"
                   />
-                  {errors.message && <span className="error">{errors.message}</span>}
                 </div>
-                </div>
-              
-                <button
-                  type="submit"
-                  className="btn-glow animate-pop"
-                  id="submitbtn"
-                  disabled={status.loading}
-                >
-                  {status.loading ? 'Submitting...' : 'Submit Support Request'}
-                </button>
-              </form>
+                {errors.message && (
+                  <span className="error">{errors.message}</span>
+                )}
+              </div>
             </div>
-          )}
+
+            <button
+              type="submit"
+              className="cta-button"
+              disabled={status.loading}
+            >
+              {status.loading ? "Submitting..." : "Submit Support Request"}
+            </button>
+          </form>
+        )}
+      </div>
+    </div>
+  </section>
+
+  {/* Bottom CTA */}
+  <div className="bottom-cta">
+    <div className="cta-card">
+      <div className="cta-content">
+        <h3>Need Immediate Assistance?</h3>
+        <p>Our expert support team is standing by to help you with any questions</p>
+        <div className="cta-buttons">
+          <a href="tel:+919778044000" className="cta-primary">
+            <i className="fas fa-phone"></i> Call Now: +919778044000
+          </a>
+          <a
+            href="mailto:customercare@spinoff.in"
+            target="_blank"
+            className="cta-primary"
+          >
+            <i className="fas fa-envelope"></i> Mail Now: customercare@spinoff.in
+          </a>
         </div>
-      </section>
+      </div>
+      <div className="cta-decoration">
+        <div className="decoration-circle circle-1"></div>
+        <div className="decoration-circle circle-2"></div>
+        <div className="decoration-circle circle-3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 }

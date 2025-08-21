@@ -361,7 +361,7 @@
   padding: 60px 20px;
   
   position: relative;
-  
+  overflow-x: hidden;
   box-sizing: border-box;
   width: 100%;
 }

@@ -28,11 +28,6 @@ function Navbar({ cart = [] }) {
     document.body.style.overflow = !isOpen ? 'hidden' : 'unset';
   };
 
-  const closeMenu = () => {
-    setIsOpen(false);
-    setIsProductsOpen(false);
-    document.body.style.overflow = 'unset';
-  };
 
   const toggleProductsDropdown = (e) => {
     e.stopPropagation();
@@ -40,6 +35,37 @@ function Navbar({ cart = [] }) {
   };
 
   const closeProductsDropdown = () => setIsProductsOpen(false);
+    const closeMenu = () => {
+        const sideMenu = document.querySelector(".nav_side_bar");
+        const menuIcon = document.querySelector(".menu_icon");
+        const overlay = document.querySelector(".sidebar_overlay");
+        
+        sideMenu.classList.remove("showw");
+        overlay.classList.remove("showw");
+        
+        document.body.style.overflow = "auto";
+    };
+
+    const toggleDropdown = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const dropdown = e.target.closest('.sidebar-dropdown');
+        const submenu = dropdown.querySelector('.sidebar-submenu');
+        const isActive = dropdown.classList.contains('active');
+        
+        document.querySelectorAll('.sidebar-dropdown').forEach(item => {
+            if (item !== dropdown) {
+                item.classList.remove('active');
+            }
+        });
+        
+        if (isActive) {
+            dropdown.classList.remove('active');
+        } else {
+            dropdown.classList.add('active');
+        }
+    };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -115,17 +141,17 @@ function Navbar({ cart = [] }) {
           <div className="sidebar_logo">
             <img src={finikelogo} alt="logo" />
           </div>
-          <i className="fas fa-close close_sidebar" onClick={closeMenu}>✕</i>
+          <i className="fas fa-close close_sidebar" onClick={closeMenu}></i>
         </div>
         <ul>
           <NavLink to="/" onClick={closeMenu}><li>Home</li></NavLink>
           <NavLink to="/about-us" onClick={closeMenu}><li>About Us</li></NavLink>
-          <li className="sidebar-dropdown">
-            <button onClick={toggleProductsDropdown} className="dropdown-toggle">
+          <li className="sidebar-dropdown" onClick={toggleDropdown}>
+            
               Our Products
-              <i className={`dropdown-arrow ${isProductsOpen ? 'rotated' : ''}`}>▼</i>
-            </button>
-            <ul className={`sidebar-submenu ${isProductsOpen ? 'show' : ''}`}>
+              
+            
+            <ul className='sidebar-submenu'>
               <NavLink to="/lithiumion-inverter" onClick={closeMenu}><li>Lithium-Ion Inverter/UPS</li></NavLink>
               <NavLink to="/solar-batteries" onClick={closeMenu}><li>Lithium Solar Batteries</li></NavLink>
               <NavLink to="/ess-batteries" onClick={closeMenu}><li>ESS Batteries</li></NavLink>

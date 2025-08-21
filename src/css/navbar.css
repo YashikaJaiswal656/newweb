@@ -407,6 +407,9 @@ li:hover {
   .menu_icon {
     display: block;
   }
+  .navbar-actions{
+    display: none;
+  }
 }
 
 @media screen and (max-width: 480px) {

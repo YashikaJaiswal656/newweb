@@ -42,7 +42,7 @@
   animation-delay: 12s; 
 }
 
-.faq-content {
+.faq-contentt {
   max-width: 1200px;
   width: 100%;
   background: rgba(255, 255, 255, 0.95);
@@ -481,7 +481,7 @@
     padding: 60px 15px;
   }
   
-  .faq-content {
+  .faq-contentt {
     padding: 40px 25px;
     border-radius: 20px;
   }

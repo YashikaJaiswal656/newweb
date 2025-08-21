@@ -114,8 +114,7 @@ section.visible .hero-content h1 .word {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px; /* Reduced from 60px */
+  grid-template-columns: 1fr ;
   align-items: start;
   max-width: 1400px; /* Increased width */
   margin: 0 auto;
@@ -435,7 +434,7 @@ section.visible .animate-pop {
   .contact-grid {
     grid-template-columns: 1fr;
     max-width: 100%; /* Full width on smaller screens */
-    gap: 32px;
+    
   }
 
   .contact-info h2,

@@ -665,93 +665,117 @@ const downloadPDF = async () => {
         </div>
       </section>
 
-      <section id="warranty-services" className="warranty-services">
-        <div className="container">
-          <h2 className="animate-letters">
-            {activeForm === 'register' ? 'Warranty Registration' : 'Check Warranty Status'}
+
+
+<section id="warranty-services" className="hero-wrapper warranty-services" style={{opacity:"1"}}>
+  {/* Ambient Decorative Spheres */}
+  <div className="ambient-sphere sphere-alpha"></div>
+  <div className="ambient-sphere sphere-beta"></div>
+  <div className="ambient-sphere sphere-gamma"></div>
+
+  {/* Header */}
+  <div className="products-header">
+    <div className="header-card">
+      <div className="header-icon">
+        <i className="fas fa-award"></i>
+      </div>
+      <h2 className="main-title">
+        {activeForm === "register" ? "Register Your Warranty" : "Check Warranty Status"}
+      </h2>
+    </div>
+  </div>
+
+  {/* Registration / Check Form */}
+  <section className="registration-section" style={{opacity:"1"}}>
+    <div className="container">
+      <div className="form-wrapperr">
+        <div className="form-header">
+          <h2>
+            {activeForm === "register" ? "Warranty Registration" : "Warranty Check"}
           </h2>
-          <p className="animate-slide">
-            {activeForm === 'register'
-              ? 'Complete the form to secure your products warranty coverage.'
-              : 'Enter your serial number to view warranty details instantly.'}
+          <p>
+            {activeForm === "register"
+              ? "Fill out the details below to activate your warranty coverage."
+              : "Enter your product serial number to check warranty details instantly."}
           </p>
+        </div>
 
-          {regStatus.success && activeForm === 'register' && (
-            <div className="success-message animate-slide">
-              <p>{regStatus.success}</p>
-            </div>
-          )}
-          {regStatus.error && activeForm === 'register' && (
-            <div className="error-message animate-slide">
-              <p>{regStatus.error}</p>
-            </div>
-          )}
-          {checkError && activeForm === 'check' && (
-            <div className="error-message animate-slide">
-              <p>{checkError}</p>
-            </div>
-          )}
-
-          <div className="warranty-form-card animate-slide">
-            {activeForm === 'register' ? (
-              <form onSubmit={handleRegSubmit} className="warranty-form-content" noValidate>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="name"></label>
+        <div className="warranty-form-card animate-slide">
+          {activeForm === "register" ? (
+            <form
+              onSubmit={handleRegSubmit}
+              className="registration-form"
+              noValidate
+            >
+              <div className="form-grid">
+                {/* Name */}
+                <div className="input-group">
+                  <label>Full Name</label>
+                  <div className="input-wrapper">
                     <input
                       type="text"
                       name="name"
                       id="name"
                       value={regFormData.name}
                       onChange={handleRegChange}
-                      placeholder="Your name"
+                      placeholder="Enter your full name"
                       required
                       pattern="[a-zA-Z\s]{2,50}"
                       maxLength="50"
-                      aria-required="true"
                     />
-                    {regErrors.name && <span className="error">{regErrors.name}</span>}
+                    <div className="input-icon">👤</div>
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="mobile"></label>
+                  {regErrors.name && <span className="error">{regErrors.name}</span>}
+                </div>
+
+                {/* Mobile */}
+                <div className="input-group">
+                  <label>Mobile Number</label>
+                  <div className="input-wrapper">
                     <input
                       type="tel"
                       name="mobile"
                       id="mobile"
                       value={regFormData.mobile}
                       onChange={handleRegChange}
-                      placeholder="Your mobile number"
+                      placeholder="+91 98765 43210"
                       required
                       pattern="\d{10}"
                       maxLength="10"
-                      aria-required="true"
                     />
-                    {regErrors.mobile && <span className="error">{regErrors.mobile}</span>}
+                    <div className="input-icon">📱</div>
                   </div>
+                  {regErrors.mobile && <span className="error">{regErrors.mobile}</span>}
                 </div>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="serialno"></label>
+
+                {/* Serial Number */}
+                <div className="input-group">
+                  <label>Product Serial Number</label>
+                  <div className="input-wrapper">
                     <input
                       type="text"
                       name="serialno"
                       id="serialno"
                       value={regFormData.serialno}
                       onChange={handleRegChange}
-                      placeholder="Product Serial number"
+                      placeholder="SN123456789"
                       required
-                      aria-required="true"
                     />
-                    {regErrors.serialno && <span className="error">{regErrors.serialno}</span>}
+                    <div className="input-icon">🏷️</div>
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="purchaseDate"></label>
+                  {regErrors.serialno && <span className="error">{regErrors.serialno}</span>}
+                </div>
+
+                {/* Purchase Date */}
+                <div className="input-group">
+                  <label>Invoice Date</label>
+                  <div className="input-wrapper">
                     <input
                       type={inputType}
                       onFocus={handleFocus}
                       onBlur={handleBlur}
-                      placeholder={inputType === 'text' ? 'Select Invoice Date' : ''}
-                      style={{ color: inputType === 'text' ? '#999' : 'black' }}
+                      placeholder={inputType === "text" ? "Select Invoice Date" : ""}
+                      style={{ color: inputType === "text" ? "#999" : "black" }}
                       name="purchaseDate"
                       min={minDate}
                       max={today}
@@ -759,114 +783,146 @@ const downloadPDF = async () => {
                       value={regFormData.purchaseDate}
                       onChange={handleRegChange}
                       required
-                      aria-required="true"
                     />
-                    {regErrors.purchaseDate && <span className="error">{regErrors.purchaseDate}</span>}
+                    <div className="input-icon">📅</div>
                   </div>
+                  {regErrors.purchaseDate && <span className="error">{regErrors.purchaseDate}</span>}
                 </div>
-                
-                <div className="form-row">
-                  <div className="form-group">
-                    <div className="file-input-wrapper">
-                      <input
-                        type="file"
-                        name="invoice"
-                        id="invoice"
-                        onChange={handleFileChange}
-                        accept=".pdf,.jpg,.jpeg,.png"
-                        required
-                        style={{ opacity: 0, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}
-                      />
-                      <div className="file-placeholder">Upload Invoice</div>
+
+                {/* Invoice Upload */}
+                <div className="input-group file-upload">
+                  <label>Upload Invoice</label>
+                  <div
+                    className="file-drop-area"
+                    onClick={() => document.getElementById("invoice").click()}
+                  >
+                    <input
+                      id="invoice"
+                      type="file"
+                      name="invoice"
+                      onChange={handleFileChange}
+                      accept=".pdf,.jpg,.jpeg,.png"
+                      required
+                      style={{ display: "none" }}
+                    />
+                    <div className="file-drop-content">
+                      <div className="upload-icon">📎</div>
+                      <p>
+                        Drop your invoice here or <span>browse files</span>
+                      </p>
+                      <small>Supports: PDF, JPG, PNG</small>
                     </div>
-                    {regErrors.invoice && <span className="error">{regErrors.invoice}</span>}
-                    {previewUrl && (
-                      <div className="file-preview">
-                        {previewUrl === 'pdf' ? (
-                          <p>PDF selected (preview not available)</p>
-                        ) : (
-                          <img src={previewUrl} alt="Invoice preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />
-                        )}
-                      </div>
-                    )}
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="invoiceno"></label>
+                  {previewUrl && (
+                    <div className="file-preview">
+                      {previewUrl === "pdf" ? (
+                        <p>PDF selected (preview not available)</p>
+                      ) : (
+                        <img
+                          src={previewUrl}
+                          alt="Invoice preview"
+                          style={{ maxWidth: "100%", maxHeight: "200px" }}
+                        />
+                      )}
+                    </div>
+                  )}
+                  {regErrors.invoice && <span className="error">{regErrors.invoice}</span>}
+                </div>
+
+                {/* Invoice No */}
+                <div className="input-group">
+                  <label>Invoice Number</label>
+                  <div className="input-wrapper">
                     <input
                       type="text"
                       name="invoiceno"
                       id="invoiceno"
                       value={regFormData.invoiceno}
                       onChange={handleRegChange}
-                      placeholder="Invoice Number"
+                      placeholder="INV-2024-001"
                       required
-                      pattern="[a-zA-Z0-9\s&.,-]{2,100}"
                       maxLength="100"
-                      aria-required="true"
                     />
-                    {regErrors.invoiceno && <span className="error">{regErrors.invoiceno}</span>}
+                    <div className="input-icon">🧾</div>
                   </div>
+                  {regErrors.invoiceno && <span className="error">{regErrors.invoiceno}</span>}
                 </div>
-                <div className="form-row" id="comid">
-                  <div className="form-group">
-                    <label htmlFor="dealer"></label>
+
+                {/* Dealer */}
+                <div className="input-group">
+                  <label>Seller/Store Name</label>
+                  <div className="input-wrapper">
                     <input
                       type="text"
                       name="dealer"
                       id="dealer"
                       value={regFormData.dealer}
                       onChange={handleRegChange}
-                      placeholder="Seller Name"
+                      placeholder="Electronics Store XYZ"
                       required
-                      pattern="[a-zA-Z0-9\s&.,-]{2,100}"
                       maxLength="100"
-                      aria-required="true"
                     />
-                    {regErrors.dealer && <span className="error">{regErrors.dealer}</span>}
+                    <div className="input-icon">🏪</div>
                   </div>
-                    <div className="form-group">
-                    <label htmlFor="pincode"></label>
+                  {regErrors.dealer && <span className="error">{regErrors.dealer}</span>}
+                </div>
+
+                {/* Pincode */}
+                <div className="input-group">
+                  <label>Pincode</label>
+                  <div className="input-wrapper">
                     <input
                       type="text"
                       name="pincode"
                       id="pincode"
                       value={regFormData.pincode}
                       onChange={handleRegChange}
-                      placeholder="Pincode"
+                      placeholder="400001"
                       required
-                      maxLength="100"
-                      aria-required="true"
+                      maxLength="6"
                     />
-                    {regErrors.pincode && <span className="error">{regErrors.pincode}</span>}
+                    <div className="input-icon">📍</div>
                   </div>
+                  {regErrors.pincode && <span className="error">{regErrors.pincode}</span>}
                 </div>
-                 <div className="form-group full-width">
-                    <label htmlFor="comments"></label>
+
+                {/* Comments */}
+                <div className="input-group full-width">
+                  <label>Additional Details (Optional)</label>
+                  <div className="input-wrapper">
                     <textarea
                       name="comments"
                       id="comments"
                       value={regFormData.comments}
                       onChange={handleRegChange}
-                      placeholder="Additional details (optional)"
+                      placeholder="Any extra details you’d like to provide"
                       maxLength="500"
                       rows="4"
                     />
-                    {regErrors.comments && <span className="error">{regErrors.comments}</span>}
                   </div>
-                <button
-                  type="submit"
-                  className="btn-glow animate-pop"
-                  id="subData"
-                  disabled={regStatus.loading}
-                >
-                  {regStatus.loading ? 'Submitting...' : 'Submit Registration'}
-                </button>
-              </form>
-            ) : (
-              <form onSubmit={handleCheckWarranty} className="warranty-check-form" noValidate>
-                <div className="form-row">
-                  <div className="form-group full-width">
-                    <label htmlFor="checkSerial">Product Serial Number</label>
+                  {regErrors.comments && <span className="error">{regErrors.comments}</span>}
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="cta-button"
+                id="subData"
+                disabled={regStatus.loading}
+              >
+                {regStatus.loading ? "Submitting..." : "Submit Registration"}
+              </button>
+            </form>
+          ) : (
+            <form
+              onSubmit={handleCheckWarranty}
+              className="registration-form"
+              noValidate
+            >
+              <div className="form-grid">
+                <div className="input-group full-width">
+                  <label>Product Serial Number</label>
+                  <div className="input-wrapper">
                     <input
                       type="text"
                       id="checkSerial"
@@ -874,86 +930,64 @@ const downloadPDF = async () => {
                       onChange={(e) => setCheckSerial(e.target.value)}
                       placeholder="Product Serial number"
                       required
-                      aria-required="true"
                     />
-                    {checkError && <span className="error">{checkError}</span>}
+                    <div className="input-icon">🏷️</div>
                   </div>
+                  {checkError && <span className="error">{checkError}</span>}
                 </div>
-                <button
-                  type="submit"
-                  className={`btn-glow animate-pop ${checkLoading ? 'loading' : ''}`}
-                  disabled={checkLoading}
-                >
-                  {checkLoading ? (
-                    <>
-                      Checking
-                      <span className="spinner"></span>
-                    </>
-                  ) : (
-                    'Check Status'
-                  )}
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      </section>
+              </div>
 
-      {checkResult && (
-        <div className="popup-overlay">
-          <div className="popup-content">
-            <button onClick={closePopup} className="popup-close">×</button>
-            <h2 className="popup-title">Warranty Details</h2>
-            <div className="warranty-details">
-              <p><strong>Product Serial Number:</strong> <span>{checkResult.serialno}</span></p>
-              <p><strong>Name:</strong> <span>{checkResult.name}</span></p>
-              <p><strong>Mobile:</strong> <span>{checkResult.mobile}</span></p>
-              <p><strong>Warranty Status:</strong> <span>{checkResult.status}</span></p>
-              <p><strong>Purchase Date:</strong> <span>{checkResult.purchaseDate}</span></p>
-              <p><strong>Expiry Date:</strong> <span>{checkResult.expiryDate}</span></p>
-              <p><strong>Dealer:</strong> <span>{checkResult.dealer}</span></p>
-            </div>
-            <button onClick={downloadPDF} className="popup-download">
-              Download Certificate
-            </button>
-          </div>
-        </div>
-      )}
-
-      {checkError && !checkResult && (
-        <div className="popup-overlay">
-          <div className="popup-content">
-            <button onClick={closePopup} className="popup-close">×</button>
-            <div className="not-found">
-              <h3>Error</h3>
-              <p>{checkError}</p>
-              <button onClick={closePopup} className="try-again-btn">
-                Try Again
+              <button
+                type="submit"
+                className={`cta-button ${checkLoading ? "loading" : ""}`}
+                disabled={checkLoading}
+              >
+                {checkLoading ? (
+                  <>
+                    Checking <span className="spinner"></span>
+                  </>
+                ) : (
+                  "Check Status"
+                )}
               </button>
-            </div>
-          </div>
+            </form>
+          )}
         </div>
-      )}
+      </div>
+    </div>
+  </section>
 
-      <section className="support">
-        <div className="container">
-          <h2 className="animate-letters">Need Assistance?</h2>
-          <p className="animate-slide">
-            Our dedicated team is ready to assist with warranty queries or product support.
-          </p>
-          <div className="support-contact animate-slide">
-            <p>
-              <strong>Phone:</strong>{' '}
-              <a href="tel:+919778044000">+91 97780-44000</a> |{' '}
-              <a href="tel:+919778744000">+91 97787-44000</a>
-            </p>
-            <p>
-              <strong>Email:</strong>{' '}
-              <a href="mailto:customercare@spinoff.in">customercare@spinoff.in</a>
-            </p>
-          </div>
+  {/* Bottom CTA */}
+  <div className="bottom-cta">
+    <div className="cta-card">
+      <div className="cta-content">
+        <h3>Need Immediate Assistance?</h3>
+        <p>
+          Our expert support team is standing by to help you with any questions
+          or concerns
+        </p>
+        <div className="cta-buttons">
+          <a href="tel:+919778044000" className="cta-primary">
+            <i className="fas fa-phone"></i> Call Now: +919778044000
+          </a>
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=customercare@spinoff.in"
+            target="_blank"
+            className="cta-primary"
+          >
+            <i className="fas fa-envelope"></i> Mail Now: customercare@spinoff.in
+          </a>
         </div>
-      </section>
+      </div>
+      <div className="cta-decoration">
+        <div className="decoration-circle circle-1"></div>
+        <div className="decoration-circle circle-2"></div>
+        <div className="decoration-circle circle-3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 }

@@ -3,6 +3,7 @@ import solarimg from '../img/solarimg.jpeg';
 import solarimg2 from '../img/solarimg2.jpg';
 import solar2 from '../assets/catalogues/solarcatalog2.pdf';
 import solarcatalogue from "../assets/catalogues/(V2).pdf"; 
+import Features from './Features';
 const SolarBattery = () => {
   const galleryImages = [
     { id: 1, description: 'Finike Solar Inverter Front View' },
@@ -19,125 +20,74 @@ const SolarBattery = () => {
     { name: 'Frequency', values: ['50Hz ± 1Hz'] },
   ];
 
-  const features = [
-    {
-      title: 'Solar Power Management',
-      description: 'Uses both Solar Power and AC Mains for charging with priority setting',
-      icon: '⚡',
-    },
-    {
-      title: 'Smart Load Sharing',
-      description: 'Compatible with smart load sharing for optimized power distribution',
-      icon: '🔌',
-    },
-    {
-      title: 'Advanced Monitoring',
-      description: 'LCD display with monitoring/data logging features for system information',
-      icon: '📊',
-    },
-    {
-      title: 'Flexible Charging',
-      description: 'Selectable charging current with High and Normal charging modes',
-      icon: '🔋',
-    },
-    {
-      title: 'Comprehensive Protection',
-      description: 'Protections against overload, short circuit, battery low, and over temperature',
-      icon: '🛡️',
-    },
-    {
-      title: 'Silent Operation',
-      description: 'No humming noise with silent UPS technology',
-      icon: '🔇',
-    },
-  ];
-
   const highlights = [
     { title: 'Capacity Range', desc: 'Available from 2.5KVA to 10KVA for various industrial needs' },
     { title: 'Power Efficiency', desc: 'Maximum solar power utilization during charging and backup mode' },
     { title: 'Grid Options', desc: 'Grid bypass option available for flexible power management' },
   ];
 
-  const supportData = [
-    { title: 'Helpline', details: ['+91 97780-44000', '+91 97787-44000'] },
-    { title: 'Sales Contact', details: ['+91 84370-42204', 'sales@spinoff.in'] },
-    { title: 'Corporate Office', details: ['SCO-117/118, Sector-43B, Chandigarh'] },
-    { title: 'Manufacturing Units', details: ['Rajpura NH1, Rajpura-Patiala Road, Punjab', 'Mohali E-226, Ph-BB, SAS Nagar'] },
-  ];
-
-  const products = [
-    {
-      title: '2.5KVA 36V/48V',
-      desc1: 'System Rating (Name Plate):  VA 2500',
-      desc2: 'Full Load Output Current: Amp 63/46',
-      desc3: 'Operating Voltage: V 36/48',
-      alt: 'Lithium-Ion Inverter 1100VA',
-    },
-    {
-      title: '3KVA 36V/48V',
-      desc1: 'System Rating (Name Plate):  VA 3000',
-      desc2: 'Full Load Output Current: Amp 63/48',
-      desc3: 'Operating Voltage: V 36/48',
-      alt: 'Lithium-Ion Inverter 3000VA',
-    },
-    {
-      title: '3.5KVA 48V',
-      desc1: 'System Rating (Name Plate):  VA 3500',
-      desc2: 'Full Load Output Current: Amp 63',
-      desc3: 'Operating Voltage: V 48',
-      alt: 'Lithium-Ion Inverter 3500VA',
-    },
-    {
-      title: '5KVA 48V',
-      desc1: 'System Rating (Name Plate):  VA 5000',
-      desc2: 'Full Load Output Current: Amp 104',
-      desc3: 'Operating Voltage: V 48',
-      alt: 'Lithium-Ion Inverter 5000VA',
-    },
-    {
-      title: '5KVA 96V',
-      desc1: 'System Rating (Name Plate):  VA 5000',
-      desc2: 'Full Load Output Current: Amp 50',
-      desc3: 'Operating Voltage: V 96',
-      alt: 'Lithium-Ion Inverter 7500VA',
-    },
-    {
-      title: '7.5KVA 96V/120V',
-      desc1: 'System Rating (Name Plate):  VA 7500',
-      desc2: 'Full Load Output Current: Amp 75/63',
-      desc3: 'Operating Voltage: V 96/120',
-      alt: 'Lithium-Ion Inverter 7500VA',
-    },
-    {
-      title: '10KVA 120V',
-      desc1: 'System Rating (Name Plate):  VA 10000',
-      desc2: 'Full Load Output Current: Amp 77',
-      desc3: 'Operating Voltage: V 120',
-      alt: 'Lithium-Ion Inverter 10000VA',
-    },
-    {
-      title: '10KVA 192V',
-      desc1: 'System Rating (Name Plate):  VA 10000',
-      desc2: 'Full Load Output Current: Amp 48',
-      desc3: 'Operating Voltage: V 192',
-      alt: 'Lithium-Ion Inverter 10000VA',
-    },
-  ];
-
-  const catalogs = [
-    {
-      title: 'Catalog 1',
-      description: 'Complete range of our solar battery products',
-      pdf: solarcatalogue,
-      thumbnail: 'https://via.placeholder.com/200x300?text=Catalog+2023'
-    },
-    {
-      title: 'Catalog 2',
-      description: 'Detailed technical specifications for all models',
-      pdf: solar2,
-      thumbnail: 'https://via.placeholder.com/200x300?text=Tech+Specs'
-    }
-  ];
+  const Infrastructure = [
+  {
+    id: 1,
+    
+    title: "2.5KVA 36V/48V",
+    location: "System Rating (Name Plate): VA 2500",
+    icon: "🏭",
+    capacity: "Full Load Output Current: Amp 63/46 Operating Voltage: V 36/48"
+  },
+  {
+    id: 2,
+    
+    title: "3KVA 36V/48V",
+    location: "System Rating (Name Plate): VA 3000",
+    icon: "🔋",
+    capacity: "Full Load Output Current: Amp 63/48 Operating Voltage: V 36/48"
+  },
+  {
+    id: 3,
+    
+    title: "3.5KVA 48V",
+    location: "System Rating (Name Plate): VA 3500",
+    icon: "⚡",
+    capacity: "Full Load Output Current: Amp 63 Operating Voltage: V 48"
+  },
+  {
+    id: 4,
+    
+    title: "5KVA 48V",
+    location: "System Rating (Name Plate): VA 5000",
+    icon: "📦",
+    capacity: "Full Load Output Current: Amp 104 Operating Voltage: V 48"
+  },
+  {
+    id: 5,
+    title: "5KVA 96V",
+    location: "System Rating (Name Plate): VA 5000",
+    icon: "🔬",
+    capacity: "Full Load Output Current: Amp 50 Operating Voltage: V 96"
+  },
+  {
+    id: 6,
+    title: "7.5KVA 96V/120V",
+    location: "System Rating (Name Plate): VA 7500",
+    icon: "⚙️",
+    capacity: "Full Load Output Current: Amp 75/63 Operating Voltage: V 96/120"
+  },
+  {
+    id: 7,
+    title: "10KVA 120V",
+    location: "System Rating (Name Plate): VA 10000",
+    icon: "🔧",
+    capacity: "Full Load Output Current: Amp 77 Operating Voltage: V 120"
+  },
+  {
+    id: 8,
+    title: "10KVA 192V",
+    location: "System Rating (Name Plate): VA 10000",
+    icon: "🌟",
+    capacity: "Full Load Output Current: Amp 48 Operating Voltage: V 192"
+  }
+];
 
   // State for gallery navigation
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -268,57 +218,6 @@ const SolarBattery = () => {
             padding: 5rem 0;
           }
           
-          .section-white {
-            background: white;
-          }
-          
-          .section-gray {
-            background: #f8f9fa;
-          }
-          
-          .section-blue {
-            background: #f0f7ff;
-          }
-          
-          .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #0066cc;
-          }
-          
-          .section-subtitle {
-            font-size: 1.25rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            color: #555;
-          }
-          
-          /* Features List */
-          .features-container {
-            max-width: 1000px;
-            margin: 0 auto;
-          }
-          
-          .features-title {
-            font-size: 1.5rem;
-            color: #2e7d32;
-            margin: 2rem 0 1rem;
-          }
-          
-          .features-list {
-            list-style-type: disc;
-            padding-left: 2rem;
-            margin-bottom: 2rem;
-          }
-          
-          .features-list li {
-            margin-bottom: 0.8rem;
-            line-height: 1.6;
-          }
-          
         /* Technical Specifications Section */
 .content-section.section-gray {
   padding: 3rem 0; /* Reduced padding for mobile */
@@ -345,72 +244,6 @@ const SolarBattery = () => {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-/* Product Grid */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.5rem; /* Reduced gap for mobile */
-  margin-top: 2rem;
-}
-
-.product-card {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  min-height: 200px; /* Ensure cards have a minimum height */
-}
-
-.product-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 80%;
-  opacity: 0.1;
-  z-index: 0;
-}
-
-.product-content {
-  position: relative;
-  z-index: 1;
-  padding: 1rem; /* Reduced padding for mobile */
-  background-color: rgba(255, 255, 255, 0.85);
-  height: 100%;
-}
-
-/* Catalog Grid */
-.catalog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); /* Adjusted min width */
-  gap: 1.5rem; /* Reduced gap for mobile */
-  margin-top: 2rem;
-}
-
-.catalog-card {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.catalog-image {
-  width: 100%;
-  height: 250px; /* Reduced height for mobile */
-  object-fit: cover;
-}
-
-.catalog-content {
-  padding: 1rem; /* Reduced padding for mobile */
-}
-
 /* Hero Banner */
 .hero-banner {
   position: relative;
@@ -764,33 +597,7 @@ const SolarBattery = () => {
               font-size: 0.9rem;
             }
             
-            .product-grid, .catalog-grid {
-              grid-template-columns: 1fr;
-              gap: 1rem;
-            }
-            
-            .product-card, .catalog-card {
-              margin: 0 auto;
-              max-width: 90%;
-            }
-            
-            .catalog-image {
-              height: 200px;
-            }
-            
-            .content-section {
-              padding: 2rem 0;
-            }
-            
-            .features-list {
-              padding-left: 1.5rem;
-            }
-            
-            .features-list li {
-              font-size: 0.9rem;
-            }
-          }
-          
+        }
           /* Animations */
           @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -825,52 +632,20 @@ const SolarBattery = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="content-section section-white">
-        <div className="container">
-          <h2 className="section-title">Key Features</h2>
-          <div className="features-container">
-            <h3 className="features-title" id="salient-features-title">
-              SALIENT FEATURES
-            </h3>
-            <ul className="features-list">
-              <li>User friendly Wide LCD display for battery user interface.</li>
-              <li>Smart Load sharing compatibility.</li>
-              <li>Monitoring/data logging feature for better system information at user end (optional).</li>
-              <li>Selectable charging current with high charging (HI) and Normal Charging (Low).</li>
-              <li>PV availability, battery charging from solar power indication with solar power priority.</li>
-              <li>User friendly, control and selection switches with LCD indication on front panel.</li>
-              <li>Protections such as Mains MCB Trip, Overload, Short circuit, Battery low, over temperature indication with buzzer as well as display on LCD available.</li>
-              <li>Power Saving through No Load Shutdown Feature.</li>
-              <li>Maximum Solar Power Utilization during charging and backup mode.</li>
-              <li>PV pole reversal protection indication on LCD.</li>
-              <li>Deep discharge battery charging from A.C. Mains as well as Solar.</li>
-              <li>No humming Noise (Silent UPS).</li>
-              <li>AC Mains available, battery charging/charged and it voltage indication provided on LCD display.</li>
-              <li>Duel Modes of operation (EC/SC/NC).</li>
-              <li>Grid bypass option available.</li>
-            </ul>
+      
 
-            <div className="flex flex-col md:flex-row justify-between items-center mt-8">
-              <strong className="text-lg font-semibold text-green-600 mb-4 md:mb-0" id="capacity-range">
-                2.5KVA | 3 KVA | 3.5 KVA | 5 KVA | 7.5 KVA | 10 KVA
-              </strong>
-              <div className="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-medium">
-                Also Available in SNMP &amp; GPRS (Simple Network Management Protocol)
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Features/>
 
       {/* Technical Specifications */}
       <section className="content-section section-gray">
         <div className="container">
-          <h2 className="section-title">Technical Specifications</h2>
-          <p className="section-subtitle">
+          
+          <h2 className="main-title" style={{textAlign:"center"}}>Technical Specifications</h2> 
+          
+          
+<p className="section-subtitle">
             Detailed technical specifications for our Solar USP/SPCU systems
           </p>
-
           <div className="overflow-x-auto">
             <img
               src={solarimg2}
@@ -885,68 +660,137 @@ const SolarBattery = () => {
         </div>
       </section>
 
-      {/* Product Showcase */}
-     {/* Product Showcase */}
-<section className="content-section section-blue">
-  <div className="container">
-    <h2 className="section-title">Our Product Range</h2>
-    <p className="section-subtitle">
-      High-quality solar battery solutions for every need
-    </p>
 
-    <div className="product-grid">
-      {products.map((product, index) => (
-        <div key={index} className="product-card animate-fade" style={{
-   
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundSize: '80%',
-          backgroundBlendMode: 'luminosity',
-          backgroundColor: 'white'
-        }}>
-          <div className="product-content" style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.85)',
-            height: '100%'
-          }}>
-            <h3 className="product-title">{product.title}</h3>
-            {product.desc1 && <p>{product.desc1}</p>}
-            {product.desc2 && <p>{product.desc2}</p>}
-            {product.desc3 && <p>{product.desc3}</p>}
-            {product.desc && <p>{product.desc}</p>}
+      <section className="infrastructure-section" style={{opacity:"1"}}>
+      <div className="decorative-bg">
+        <div className="bg-circle bg-circle-1"></div>
+        <div className="bg-circle bg-circle-2"></div>
+        <div className="bg-circle bg-circle-3"></div>
+      </div>
+
+      
+
+      <div className="infrastructure-container">
+        
+        <div className="infrastructure-header">
+          <div className="header-card">
+            <div className="header-icon">
+              <i className="fas fa-building"></i>
+            </div>
+            <h2 className="main-title">Our Product Range</h2>
           </div>
+          
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-      {/* Catalog Section */}
-      <section className="content-section section-white">
-        <div className="container">
-          <h2 className="section-title">Product Catalogs</h2>
-          <p className="section-subtitle">
-            Download our detailed product catalogs for complete specifications
-          </p>
 
-          <div className="catalog-grid">
-            {catalogs.map((catalog, index) => (
-              <div key={index} className="catalog-card animate-fade">
-
-                <div className="catalog-content">
-                  <h3 className="catalog-title">{catalog.title}</h3>
-                  <p>{catalog.description}</p>
-                  <a
-                    href={catalog.pdf}
-                    download
-                    className="download-button"
-                  >
-                    Download PDF
-                  </a>
+        
+        <div className="infrastructure-grid">
+          {Infrastructure.map((item) => (
+            <div key={item.id} className="infrastructure-card">
+             
+              
+              <div className="card-content">
+                <h3 className="facility-title">{item.title}</h3>
+                
+                <div className="location-info">
+                  <div className="location-dot"></div>
+                  <span className="location-text">{item.location}</span>
+                </div>
+                
+                <div className="capacity-info">
+                  <div className="capacity-icon">
+                    <i className="fas fa-cog"></i>
+                  </div>
+                  <span className="capacity-text">{item.capacity}</span>
                 </div>
               </div>
-            ))}
+            </div>
+          ))}
+        </div>
+   </div>
+
+      <div className="catalog-container">
+      
+      <div className="catalog-floating-orb catalog-orb-1"></div>
+      <div className="catalog-floating-orb catalog-orb-2"></div>
+      <div className="catalog-floating-orb catalog-orb-3"></div>
+      <div className="catalog-floating-orb catalog-orb-4"></div>
+      <div className="catalog-floating-orb catalog-orb-5"></div>
+      
+      <div className="catalog-content">
+        
+        <div className="catalog-bg-pattern">
+          <div className="catalog-pattern-circle"></div>
+          <div className="catalog-pattern-circle"></div>
+          <div className="catalog-pattern-circle"></div>
+        </div>
+
+        
+        <div className="catalog-header">
+          <div className="catalog-pulse-container">
+            <div className="catalog-header-icon">
+              📋
+            </div>
+          </div>
+          <h2 className="catalog-main-title">Product Catalogs</h2>
+          <div className="catalog-title-underline">
+            <div className="catalog-line-segment"></div>
+            <div className="catalog-line-dot"></div>
+            <div className="catalog-line-segment"></div>
+          </div>
+          <p className="catalog-subtitle">Download our detailed product catalogs for complete specifications</p>
+        </div>
+
+        
+        <div className="catalog-main-card">
+          <div className="catalog-card-glow"></div>
+          
+          
+
+          <div className="catalog-card-content">
+
+
+           
+            <div className="catalog-cta-section">
+              <a 
+                href="https://finikelithium.com/static/media/(V2).9ac6ce9d86c79f272811.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="catalog-cta-button"
+              >
+                <div className="catalog-button-bg"></div>
+                <div className="catalog-button-content">
+                  <span className="catalog-button-icon"></span>
+                  <span className="catalog-button-text"> Catalog 1</span>
+                  <div className="catalog-button-arrow">→</div>
+                </div>
+                <div className="catalog-button-glow"></div>
+              </a>
+                            <a 
+                href="https://finikelithium.com/static/media/solarcatalog2.cf5da577acda1a2ae454.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="catalog-cta-button"
+              >
+                <div className="catalog-button-bg"></div>
+                <div className="catalog-button-content">
+                  <span className="catalog-button-icon"></span>
+                  <span className="catalog-button-text">Catalog 2</span>
+                  <div className="catalog-button-arrow">→</div>
+                </div>
+                <div className="catalog-button-glow"></div>
+              </a>
+              
+            </div>
+            
           </div>
         </div>
-      </section>
+
+        
+
+      </div>
+
+    </div>
+    </section>
     </div>
   );
 };

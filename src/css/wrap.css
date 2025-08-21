@@ -301,7 +301,7 @@
 @media (max-width: 768px) {
   .hero-wrapper { 
     padding: 40px 15px; 
-    min-height: 100vh;
+    height: fit-content;
   }
   
   .content-grid {

@@ -164,7 +164,179 @@ function ContactUs() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      
+            <div className="hero-wrapper">
+  <div className="ambient-sphere sphere-alpha"></div>
+  <div className="ambient-sphere sphere-beta"></div>
+  <div className="ambient-sphere sphere-gamma"></div>
+
+  <div className="products-header">
+    <div className="header-card">
+      <div className="header-icon">
+        <i className="fas fa-award"></i>
+      </div>
+      <h2 className="main-title">Contact Us</h2>
+    </div>
+  </div>
+
+  <section className="registration-section">
+    <div className="container">
+      <div className="form-wrapperr">
+        <div className="form-header">
+          <h2>Send Us a Message</h2>
+        </div>
+
+        {/* Hooked to your backend */}
+        <form className="registration-form" onSubmit={handleSubmit} noValidate>
+          <div className="form-grid">
+            {/* Full Name */}
+            <div className="input-group">
+              <label>Full Name</label>
+              <div className="input-wrapper">
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Enter your full name"
+                  required
+                  aria-label="Your Name"
+                />
+                <div className="input-icon">👤</div>
+              </div>
+              {errors.name && <p className="error-message">{errors.name}</p>}
+            </div>
+
+            {/* Mobile */}
+            <div className="input-group">
+              <label>Mobile Number</label>
+              <div className="input-wrapper">
+                <input
+                  type="tel"
+                  name="mobile"
+                  value={formData.mobile}
+                  onChange={handleChange}
+                  placeholder="+91 98765 43210"
+                  required
+                  aria-label="Your Mobile Number"
+                />
+                <div className="input-icon">📱</div>
+              </div>
+              {errors.mobile && <p className="error-message">{errors.mobile}</p>}
+            </div>
+
+            {/* Email */}
+            <div className="input-group">
+              <label>Email Address</label>
+              <div className="input-wrapper">
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="your.email@example.com"
+                  required
+                  aria-label="Your Email"
+                />
+                <div className="input-icon">📧</div>
+              </div>
+              {errors.email && <p className="error-message">{errors.email}</p>}
+            </div>
+
+            {/* Subject */}
+            <div className="input-group">
+              <label>Subject</label>
+              <div className="input-wrapper">
+                <input
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  placeholder="Enter your subject"
+                  required
+                  aria-label="Subject"
+                />
+                <div className="input-icon">🏷️</div>
+              </div>
+              {errors.subject && <p className="error-message">{errors.subject}</p>}
+            </div>
+
+            {/* Message */}
+            <div className="input-group full-width">
+              <label>Details</label>
+              <div className="input-wrapper">
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Enter your message"
+                  required
+                  aria-label="Your Message"
+                />
+              </div>
+              {errors.message && <p className="error-message">{errors.message}</p>}
+            </div>
+
+            {/* ReCAPTCHA */}
+            <div className="input-group full-width">
+              <ReCAPTCHA
+                sitekey={RECAPTCHA_SITE_KEY}
+                onChange={handleRecaptchaChange}
+                theme="light"
+              />
+              {errors.recaptcha && <p className="error-message">{errors.recaptcha}</p>}
+            </div>
+          </div>
+
+          {/* Submit Button */}
+          <button
+            className="cta-button"
+            type="submit"
+            disabled={status.loading || !isFormValid()}
+          >
+            {status.loading ? "Sending..." : "Send Message"}
+          </button>
+
+          {/* Status Messages */}
+          {status.success && <p className="success-message">{status.success}</p>}
+          {status.error && <p className="error-message">{status.error}</p>}
+        </form>
+      </div>
+    </div>
+  </section>
+
+  {/* Bottom Call-to-Action */}
+  <div className="bottom-cta">
+    <div className="cta-card">
+      <div className="cta-content">
+        <h3>Need Immediate Assistance?</h3>
+        <p>
+          Our expert support team is standing by to help you with any questions or concerns
+        </p>
+        <div className="cta-buttons">
+          <a href="tel:+919778044000" className="cta-primary">
+            <i className="fas fa-phone"></i>
+            Call Now: +919778044000
+          </a>
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=customercare@spinoff.in"
+            target="_blank"
+            className="cta-primary"
+          >
+            <i className="fas fa-envelope"></i>
+            Mail Now: customercare@spinoff.in
+          </a>
+        </div>
+      </div>
+      <div className="cta-decoration">
+        <div className="decoration-circle circle-1"></div>
+        <div className="decoration-circle circle-2"></div>
+        <div className="decoration-circle circle-3"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{/* Contact Section */}
       <section id="contact-page-area" className="contact-section">
         <div className="container">
           <div className="contact-grid">
@@ -211,88 +383,8 @@ function ContactUs() {
                 </div>
               </div>
             </div>
-            <div className="contact-form">
-              <h2 className="animate-letters">Send Us a Message</h2>
-              <form id="contact-form" onSubmit={handleSubmit} noValidate>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your Name"
-                    required
-                    aria-label="Your Name"
-                  />
-                  {errors.name && <p className="error-message">{errors.name}</p>}
-                </div>
-                <div className="form-group">
-                  <input
-                    type="tel"
-                    name="mobile"
-                    value={formData.mobile}
-                    onChange={handleChange}
-                    placeholder="Your Mobile Number"
-                    required
-                    aria-label="Your Mobile Number"
-                  />
-                  {errors.mobile && <p className="error-message">{errors.mobile}</p>}
-                </div>
-                <div className="form-group">
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Your Email"
-                    required
-                    aria-label="Your Email"
-                  />
-                  {errors.email && <p className="error-message">{errors.email}</p>}
-                </div>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="Subject"
-                    required
-                    aria-label="Subject"
-                  />
-                  {errors.subject && <p className="error-message">{errors.subject}</p>}
-                </div>
-                <div className="form-group">
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Your Message"
-                    required
-                    aria-label="Your Message"
-                  />
-                  {errors.message && <p className="error-message">{errors.message}</p>}
-                </div>
-                <div className="form-group">
-                  <ReCAPTCHA
-                    sitekey={RECAPTCHA_SITE_KEY}
-                    onChange={handleRecaptchaChange}
-                    theme="light"
-                  />
-                  {errors.recaptcha && <p className="error-message">{errors.recaptcha}</p>}
-                </div>
-                <button
-                  type="submit"
-                  className="btn-glow animate-pop"
-                  id="submitbtn"
-                  disabled={status.loading || !isFormValid()}
-                >
-                  {status.loading ? "Sending..." : "Send Message"}
-                </button>
-                {status.success && <p className="success-message">{status.success}</p>}
-                {status.error && <p className="error-message">{status.error}</p>}
-              </form>
-            </div>
+      
+
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/customersupport.css';
+import Warranty from './Warrenty';
 
 function Customersupport() {
     useEffect(() => {
@@ -48,61 +49,65 @@ function Customersupport() {
                     </p>
                 </div>
             </section>
-            <section>
-                <div id="supportid">
-                    <h1>Customer Support</h1>
-                    <p>
-                        Finike Lithium Care <br />
-                       We pride ourselves on offering top-notch pre and post-sales support to all our customers. Connect with us – we’d love to hear from you!
-                    </p>
-                </div>
-            </section>
-            <section id="supportserviceid">
-                <div>
-                    <Link to="/warranty" id="techsup">
-                        <i className="fas fa-certificate"></i> Warranty Register
-                    </Link>
-                </div>
-                <div>
-                    <Link to="/technical-support">
-                        <i className="fas fa-triangle-exclamation"></i> Register Complaint
-                    </Link>
-                </div>
-                <div>
-                    <Link to="/contact-us">
-                        <i className="fas fa-envelope"></i> Contact Us
-                    </Link>
-                </div>
-                <div>
-                    <Link to="/get-quote">
-                    <i>Get a Quote</i>
-                    </Link>
-                </div>
-                <div>
-                    <Link to="/online-payment">
-                        <i className="fas fa-envelope"></i>  Online Payment
-                    </Link>
-                </div>
-            </section>
-            <section id="helpsupportid">
-                <div>
-                    <b>Help & Support</b> <br />
-                    Having trouble with our product? <br />
-                    Reach out to us at:
-                </div>
-                <div>
-                    <p>
-                    <i className="fas fa-phone"></i>
-                        <strong>Phone</strong> <br />
-                        +91 97787-44000
-                    </p>
-                    <p>
-                    <i className="fas fa-envelope"></i>
-                        <strong>Email</strong> <br />
-                        customercare@spinoff.in
-                    </p>
-                </div>
-            </section>
+            <div className="hero-wrapper">
+      
+      <div className="ambient-sphere sphere-alpha"></div>
+      <div className="ambient-sphere sphere-beta"></div>
+      <div className="ambient-sphere sphere-gamma"></div>
+      
+      <div className="content-grid">
+        
+        <div className="brand-showcase">
+          <div className="logo-frame">
+            <div className="brand-symbol">
+              <i className="fas fa-bolt"></i>
+            </div>
+          </div>
+          
+          <div className="company-badge">
+            <div className="badge-text">EST. 2025</div>
+            <div className="badge-divider"></div>
+            <div className="badge-location">CHANDIGARH</div>
+          </div>
+        </div>
+        
+        <div className="content-panel">
+          <div className="section-tag">
+            <span className="tag-icon">◆</span>
+            <span className="tag-label">Customer Support</span>
+            <span className="tag-icon">◆</span>
+          </div>
+          
+          <h2 className="main-title">
+            Finike Lithium
+          </h2>
+          
+          <div className="story-block">
+            <div className="paragraph-marker"></div>
+            <p className="narrative-text">
+We are pioneers in comprehensive customer service excellence, delivering high-performance support and assistance for battery inquiries, technical guidance, and warranty services across all applications.
+
+            </p>
+          </div>
+          
+          <div className="story-block">
+            <div className="paragraph-marker"></div>
+            <p className="narrative-text">
+Headquartered in Chandigarh with service teams in Punjab and nationwide support presence, we drive innovation in customer care and satisfaction. Our reliable, efficient support team handles pre-sales consultation, post-sales assistance, and technical troubleshooting by providing personalized solutions and powering exceptional service experiences.
+We pride ourselves on offering top-notch pre and post-sales support to all our customers. Connect with us –  <span className="emphasis-text">we'd love to hear from you!</span>.
+            </p>
+          </div>
+          
+
+        </div>
+      </div>
+      
+    </div>
+
+
+
+            <Warranty/>
+            
         </div>
     );
 }

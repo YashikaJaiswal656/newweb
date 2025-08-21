@@ -34,7 +34,7 @@ const Faq = () => {
       <div className="floating-orb faq-orb-3"></div>
       <div className="floating-orb faq-orb-4"></div>
       
-      <div className="faq-content">
+      <div className="faq-contentt">
         
         <div className="faq-header">
           
