@@ -62,7 +62,7 @@ const Hub = () => {
 
       <style jsx>{`
         .battery-performance-hub {
-          min-height: 100vh;
+          height: fit-content;
           background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
           padding: 40px 20px;
           position: relative;

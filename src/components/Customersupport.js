@@ -55,7 +55,7 @@ function Customersupport() {
       <div className="ambient-sphere sphere-beta"></div>
       <div className="ambient-sphere sphere-gamma"></div>
       
-      <div className="content-grid">
+      <div className="content-gridd">
         
         <div className="brand-showcase">
           <div className="logo-frame">

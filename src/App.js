@@ -44,7 +44,7 @@ function App() {
       <div>
                {/* <CouponBanner />*/}
         <Navbar cart={cart} />
-        <main>
+        <main style={{overflow:'hidden'}}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about-us" element={<About />} />

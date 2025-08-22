@@ -43,7 +43,7 @@
   animation-delay: 8s; 
 }
 
-.content-grid {
+.content-gridd {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 80px;
@@ -304,7 +304,7 @@
     height: fit-content;
   }
   
-  .content-grid {
+  .content-gridd {
     grid-template-columns: 1fr;
     gap: 40px;
     padding: 30px 20px;
@@ -391,7 +391,7 @@
     padding: 20px 10px;
   }
   
-  .content-grid { 
+  .content-gridd { 
     padding: 25px 15px;
     gap: 30px;
     border-radius: 20px;
@@ -451,7 +451,7 @@
     padding: 15px 8px;
   }
   
-  .content-grid {
+  .content-gridd {
     padding: 20px 12px;
     max-width: calc(100% - 5px);
   }
