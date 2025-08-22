@@ -80,7 +80,7 @@ function Navbar({ cart = [] }) {
     document.addEventListener('click', handleClickOutside);
     return () => {
       document.removeEventListener('click', handleClickOutside);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = 'hidden';
     };
   }, [isOpen, isProductsOpen]);
 

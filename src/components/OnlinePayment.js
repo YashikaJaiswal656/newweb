@@ -433,194 +433,248 @@ const downloadReceipt = async () => {
         <div className="hero-gradient"></div>
       </header>
 
-      <div className="payment-content-grid">
-        <div className="payment-infoo" ref={contentRef}>
-          <div className="info-content">
-            <div className="feature-list">
-              <div>
-                <img src={transectionimg} alt="Secure transaction" id="onlineimg" />
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="hero-wrapper">
+  {/* ambient orbs like your 2nd UI */}
+  <div className="ambient-sphere sphere-alpha"></div>
+  <div className="ambient-sphere sphere-beta"></div>
+  <div className="ambient-sphere sphere-gamma"></div>
 
-        <div className="payment-form-container" ref={formRef}>
-          <div className={`form-wrapper ${isAnimating ? 'fade-out' : 'fade-in'}`}>
-            {currentStep === 1 ? (
-              <div className="form-step">
-                <h2 className="form-title">Your Information</h2>
-                <p className="form-subtitle">We'll use this to verify your payment</p>
-                {error && <p className="error-message" style={{ color: 'red' }}>{error}</p>}
+
+  {/* main content area in 2nd UI structure */}
+  <section className="registration-section" style={{opacity:"1"}}>
+    <div className="container">
+
+
+      {/* right form column */}
+      <div className="form-wrapperr" ref={formRef}>
+        <div className={`registration-form ${isAnimating ? 'fade-out' : 'fade-in'}`}>
+          {currentStep === 1 ? (
+            <div className="form-step">
+              <h2 className="form-title">Your Information</h2>
+              <p className="form-subtitle">We'll use this to verify your payment</p>
+              {error && <p className="error-message" style={{ color: 'red' }}>{error}</p>}
+
+              <div className="form-grid">
                 <div className="input-group">
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Full Name"
-                    className="apple-input"
-                    disabled={loading}
-                  />
+                  <div className="input-wrapper">
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Full Name"
+                      disabled={loading}
+                    />
+                    <div className="input-icon">👤</div>
+                  </div>
                 </div>
+
                 <div className="input-group">
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Email Address"
-                    className="apple-input"
-                    disabled={loading}
-                  />
+                  <div className="input-wrapper">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Email Address"
+                      disabled={loading}
+                    />
+                    <div className="input-icon">📧</div>
+                  </div>
                 </div>
+
                 <div className="input-group">
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="Phone Number"
-                    className="apple-input"
-                    disabled={loading}
-                  />
+                  <div className="input-wrapper">
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Phone Number"
+                      disabled={loading}
+                    />
+                    <div className="input-icon">📱</div>
+                  </div>
                 </div>
+              </div>
+
+              <button
+                className="cta-button"
+                onClick={nextStep}
+                disabled={loading}
+              >
+                Continue to Payment
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" />
+                </svg>
+              </button>
+            </div>
+          ) : currentStep === 2 ? (
+            <div className="form-step">
+              <h2 className="form-title">Payment Details</h2>
+              <p className="form-subtitle">Complete your Finike Lithium purchase</p>
+              {error && <p className="error-message" style={{ color: 'red' }}>{error}</p>}
+
+              <div className="form-grid">
+                <div className="input-group">
+                  <div className="select-wrapper">
+                    <select
+                      name="purpose"
+                      value={formData.purpose}
+                      onChange={handleChange}
+                      disabled={loading}
+                    >
+                      {purposes.map(purpose => (
+                        <option key={purpose} value={purpose}>{purpose}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div className="input-group">
+                  <div className="input-wrapper">
+                    <input
+                      type="number"
+                      name="amount"
+                      value={formData.amount}
+                      onChange={handleChange}
+                      placeholder="Amount (₹)"
+                      disabled={loading}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="form-actions">
                 <button
-                  className="apple-button primary"
-                  onClick={nextStep}
+                  className="cta-button secondary"
+                  onClick={prevStep}
                   disabled={loading}
                 >
-                  Continue to Payment
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" />
+                    <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" />
                   </svg>
+                  Back
+                </button>
+                <button
+                  className="cta-button"
+                  onClick={initiatePayment}
+                  disabled={loading || !formData.amount}
+                >
+                  {loading ? 'Processing...' : `Pay ₹${formData.amount || '0'}`}
                 </button>
               </div>
-            ) : currentStep === 2 ? (
-              <div className="form-step">
-                <h2 className="form-title">Payment Details</h2>
-                <p className="form-subtitle">Complete your Finike Lithium purchase</p>
-                {error && <p className="error-message" style={{ color: 'red' }}>{error}</p>}
-                <div className="input-group">
-                  <select
-                    name="purpose"
-                    value={formData.purpose}
-                    onChange={handleChange}
-                    className="apple-input"
-                    disabled={loading}
-                  >
-                    {purposes.map(purpose => (
-                      <option key={purpose} value={purpose}>{purpose}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="input-group">
-                  <input
-                    type="number"
-                    name="amount"
-                    value={formData.amount}
-                    onChange={handleChange}
-                    placeholder="Amount (₹)"
-                    className="apple-input"
-                    disabled={loading}
-                  />
-                </div>
-                <div className="form-actions">
-                  <button
-                    className="apple-button secondary"
-                    onClick={prevStep}
-                    disabled={loading}
-                  >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" />
-                    </svg>
-                    Back
-                  </button>
-                  <button
-                    className="apple-button primary"
-                    onClick={initiatePayment}
-                    disabled={loading || !formData.amount}
-                  >
-                    {loading ? 'Processing...' : `Pay ₹${formData.amount || '0'}`}
-                  </button>
-                </div>
-              </div>
-            ) : null}
-            <div className="security-badge">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2" />
-              </svg>
-              <span>256-bit SSL Encryption • PCI DSS Compliant</span>
             </div>
+          ) : null}
+
+          <div className="security-badge">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2" />
+            </svg>
+            <span>256-bit SSL Encryption • PCI DSS Compliant</span>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      {currentStep === 3 && receipt && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <button className="modal-close" onClick={closeModal}>×</button>
-            <div className="receipt-card">
-              <div className="receipt-header">
-                <img src={finikelogo} alt="Finike Lithium" className="receipt-logo" />
-                <h3 className="receipt-title">Payment Receipt</h3>
-              </div>
-              <div className="receipt-details">
-                <div className="receipt-row">
-                  <span className="receipt-label">Receipt ID:</span>
-                  <span className="receipt-value">{receipt.receipt_id}</span>
-                </div>
-                <div className="receipt-row">
-                  <span className="receipt-label">Payment ID:</span>
-                  <span className="receipt-value">{receipt.payment_id}</span>
-                </div>
-                <div className="receipt-row">
-                  <span className="receipt-label">Order ID:</span>
-                  <span className="receipt-value">{receipt.order_id}</span>
-                </div>
-                <div className="receipt-row">
-                  <span className="receipt-label">Amount:</span>
-                  <span className="receipt-value">₹{receipt.amount}</span>
-                </div>
-                <div className="receipt-row">
-                  <span className="receipt-label">Purpose:</span>
-                  <span className="receipt-value">{receipt.purpose}</span>
-                </div>
-                <div className="receipt-row">
-                  <span className="receipt-label">Name:</span>
-                  <span className="receipt-value">{receipt.name}</span>
-                </div>
-                <div className="receipt-row">
-                  <span className="receipt-label">Email:</span>
-                  <span className="receipt-value">{receipt.email}</span>
-                </div>
-                <div className="receipt-row">
-                  <span className="receipt-label">Phone:</span>
-                  <span className="receipt-value">{receipt.phone}</span>
-                </div>
-                <div className="receipt-row">
-                  <span className="receipt-label">Date:</span>
-                  <span className="receipt-value">{receipt.date}</span>
-                </div>
-              </div>
-              <div className="form-actions">
-                <button
-                  className="apple-button primary"
-                  onClick={downloadReceipt}
-                >
-                  Download PDF Receipt
-                </button>
-                <button
-                  className="apple-button secondary"
-                  onClick={closeModal}
-                >
-                  Make Another Payment
-                </button>
-              </div>
+  {/* receipt modal untouched */}
+  {currentStep === 3 && receipt && (
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <button className="modal-close" onClick={closeModal}>×</button>
+        <div className="receipt-card">
+          <div className="receipt-header">
+            <img src={finikelogo} alt="Finike Lithium" className="receipt-logo" />
+            <h3 className="receipt-title">Payment Receipt</h3>
+          </div>
+          <div className="receipt-details">
+            <div className="receipt-row">
+              <span className="receipt-label">Receipt ID:</span>
+              <span className="receipt-value">{receipt.receipt_id}</span>
+            </div>
+            <div className="receipt-row">
+              <span className="receipt-label">Payment ID:</span>
+              <span className="receipt-value">{receipt.payment_id}</span>
+            </div>
+            <div className="receipt-row">
+              <span className="receipt-label">Order ID:</span>
+              <span className="receipt-value">{receipt.order_id}</span>
+            </div>
+            <div className="receipt-row">
+              <span className="receipt-label">Amount:</span>
+              <span className="receipt-value">₹{receipt.amount}</span>
+            </div>
+            <div className="receipt-row">
+              <span className="receipt-label">Purpose:</span>
+              <span className="receipt-value">{receipt.purpose}</span>
+            </div>
+            <div className="receipt-row">
+              <span className="receipt-label">Name:</span>
+              <span className="receipt-value">{receipt.name}</span>
+            </div>
+            <div className="receipt-row">
+              <span className="receipt-label">Email:</span>
+              <span className="receipt-value">{receipt.email}</span>
+            </div>
+            <div className="receipt-row">
+              <span className="receipt-label">Phone:</span>
+              <span className="receipt-value">{receipt.phone}</span>
+            </div>
+            <div className="receipt-row">
+              <span className="receipt-label">Date:</span>
+              <span className="receipt-value">{receipt.date}</span>
             </div>
           </div>
+          <div className="form-actions">
+            <button
+              className="cta-button"
+              onClick={downloadReceipt}
+            >
+              Download PDF Receipt
+            </button>
+            <button
+              className="cta-button secondary"
+              onClick={closeModal}
+            >
+              Make Another Payment
+            </button>
+          </div>
         </div>
-      )}
+      </div>
+    </div>
+  )}
+
+  {/* bottom CTA from 2nd UI */}
+  <div className="bottom-cta">
+    <div className="cta-card">
+      <div className="cta-content">
+        <h3>Need Immediate Assistance?</h3>
+        <p>Our expert support team is standing by to help you with any questions or concerns</p>
+        <div className="cta-buttons">
+          <a href="tel:+919778044000" className="cta-primary">
+            <i className="fas fa-phone"></i>
+            Call Now: +919778044000
+          </a>
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=customercare@spinoff.in"
+            target="_blank"
+            className="cta-primary"
+          >
+            <i className="fas fa-envelope"></i>
+            Mail Now: customercare@spinoff.in
+          </a>
+        </div>
+      </div>
+      <div className="cta-decoration">
+        <div className="decoration-circle circle-1"></div>
+        <div className="decoration-circle circle-2"></div>
+        <div className="decoration-circle circle-3"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
     </div>
   );
 };

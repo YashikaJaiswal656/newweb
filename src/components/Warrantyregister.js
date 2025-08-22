@@ -666,7 +666,6 @@ const downloadPDF = async () => {
       </section>
 
 
-
 <section id="warranty-services" className="hero-wrapper warranty-services" style={{opacity:"1"}}>
   {/* Ambient Decorative Spheres */}
   <div className="ambient-sphere sphere-alpha"></div>
@@ -700,13 +699,26 @@ const downloadPDF = async () => {
           </p>
         </div>
 
+        {/* ✅ Restored global banners */}
+        {regStatus.success && activeForm === "register" && (
+          <div className="success-message animate-slide">
+            <p>{regStatus.success}</p>
+          </div>
+        )}
+        {regStatus.error && activeForm === "register" && (
+          <div className="error-message animate-slide">
+            <p>{regStatus.error}</p>
+          </div>
+        )}
+        {checkError && activeForm === "check" && (
+          <div className="error-message animate-slide">
+            <p>{checkError}</p>
+          </div>
+        )}
+
         <div className="warranty-form-card animate-slide">
           {activeForm === "register" ? (
-            <form
-              onSubmit={handleRegSubmit}
-              className="registration-form"
-              noValidate
-            >
+            <form onSubmit={handleRegSubmit} className="registration-form" noValidate>
               <div className="form-grid">
                 {/* Name */}
                 <div className="input-group">
@@ -914,11 +926,7 @@ const downloadPDF = async () => {
               </button>
             </form>
           ) : (
-            <form
-              onSubmit={handleCheckWarranty}
-              className="registration-form"
-              noValidate
-            >
+            <form onSubmit={handleCheckWarranty} className="registration-form" noValidate>
               <div className="form-grid">
                 <div className="input-group full-width">
                   <label>Product Serial Number</label>
@@ -956,6 +964,42 @@ const downloadPDF = async () => {
       </div>
     </div>
   </section>
+     {checkResult && (
+        <div className="popup-overlay">
+          <div className="popup-content">
+            <button onClick={closePopup} className="popup-close">×</button>
+            <h2 className="popup-title">Warranty Details</h2>
+            <div className="warranty-details">
+              <p><strong>Product Serial Number:</strong> <span>{checkResult.serialno}</span></p>
+              <p><strong>Name:</strong> <span>{checkResult.name}</span></p>
+              <p><strong>Mobile:</strong> <span>{checkResult.mobile}</span></p>
+              <p><strong>Warranty Status:</strong> <span>{checkResult.status}</span></p>
+              <p><strong>Purchase Date:</strong> <span>{checkResult.purchaseDate}</span></p>
+              <p><strong>Expiry Date:</strong> <span>{checkResult.expiryDate}</span></p>
+              <p><strong>Dealer:</strong> <span>{checkResult.dealer}</span></p>
+            </div>
+            <button onClick={downloadPDF} className="popup-download">
+              Download Certificate
+            </button>
+          </div>
+        </div>
+      )}
+
+      {checkError && !checkResult && (
+        <div className="popup-overlay">
+          <div className="popup-content">
+            <button onClick={closePopup} className="popup-close">×</button>
+            <div className="not-found">
+              <h3>Error</h3>
+              <p>{checkError}</p>
+              <button onClick={closePopup} className="try-again-btn">
+                Try Again
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
 
   {/* Bottom CTA */}
   <div className="bottom-cta">
@@ -987,6 +1031,7 @@ const downloadPDF = async () => {
     </div>
   </div>
 </section>
+
 
     </div>
   );

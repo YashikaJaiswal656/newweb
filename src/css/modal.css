@@ -361,7 +361,7 @@
   padding: 60px 20px;
   
   position: relative;
-  overflow-x: hidden;
+  
   box-sizing: border-box;
   width: 100%;
 }
@@ -420,7 +420,7 @@
      @media (max-width: 768px) {
   .premium-inverter-collection {
     padding: 40px 16px;
-    overflow-x: hidden;
+    
   }
   
   .collection-container {
