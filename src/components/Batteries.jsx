@@ -147,20 +147,7 @@ const Batteries = () => {
                 <div className="modal-product-details">
                   <h3 className="modal-product-title">{selectedImage.title}</h3>
                   <p className="modal-product-description">{selectedImage.location}</p>
-                  <div className="product-specifications">
-                    <div className="specification-item">
-                      <span className="specification-label">Power Output</span>
-                      <span className="specification-value">{selectedImage.power}</span>
-                    </div>
-                    <div className="specification-item">
-                      <span className="specification-label">Status</span>
-                      <span className="specification-value">{selectedImage.status}</span>
-                    </div>
-                    <div className="specification-item">
-                      <span className="specification-label">Process</span>
-                      <span className="specification-value">{selectedImage.capacity}</span>
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
             </div>

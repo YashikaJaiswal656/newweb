@@ -45,7 +45,7 @@ const OurProduct = () => {
               <div className="product-image-container">
                 <div className="image-glow"></div>
                 <div className="image-wrapper">
-                  <img
+                  <img style={{height:"190px"}}
                     src="https://finikelithium.com/static/media/image.25934904c93b785b058c.jpg"
                     alt="Finike Products"
                     className="product-image"
