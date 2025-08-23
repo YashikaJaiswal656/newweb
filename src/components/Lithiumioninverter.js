@@ -149,10 +149,7 @@ function LithiumIonInverter(props) {
                   </div>
                   <p className="metric-label">Conversion Rate</p>
                 </div>
-                <p className="card-description">
-                   
-                  Maximizing energy harvest from every solar panel.
-                </p>
+                
               </div>
             </div>
 
@@ -174,9 +171,7 @@ function LithiumIonInverter(props) {
                     <span className="badge-textt">Zero Waste Manufacturing</span>
                   </div>
                 </div>
-                <p className="card-description">
-                  Constructed with fully recyclable components 
-                </p>
+                
               </div>
             </div>
           </div>

@@ -103,9 +103,7 @@ const [activeIndex, setActiveIndex] = useState(null);
                   </div>
                   <p className="metric-label">Optimized Efficiency</p>
                 </div>
-                <p className="card-description">
-                  Delivers fast, reliable performance for telecom systems
-                </p>
+                
               </div>
             </div>
 
@@ -127,9 +125,7 @@ const [activeIndex, setActiveIndex] = useState(null);
                     <span className="badge-text">Rapid Charging Technology</span>
                   </div>
                 </div>
-                <p className="card-description">
-                  Sustainable technology that reduces environmental impact with rapid charging that minimizes downtime.
-                </p>
+                
               </div>
             </div>
           </div>
@@ -145,7 +141,7 @@ const [activeIndex, setActiveIndex] = useState(null);
                     
                   </div>
                   <div className="header-text">
-                    <h3 className="card-title">Extended Uptime</h3>
+                    <h3 className="card-title" style={{margin:"0px"}}>Extended Uptime</h3>
                     <p className="card-subtitle">Reliable Performance Guaranteed</p>
                   </div>
                 </div>
@@ -184,7 +180,7 @@ const [activeIndex, setActiveIndex] = useState(null);
                 </div>
 
                 <p className="card-description">
-                  Longer operational life with fewer recharges, ensuring consistent power delivery in demanding conditions with reliable performance you can count on. From extreme weather events to high-demand applications, our batteries maintain consistent output without degradation 
+                  Longer operational life with fewer recharges, ensuring consistent power delivery in demanding conditions with reliable performance you can count on. From extreme weather events to high-demand applications. 
                 </p>
               </div>
             </div>
@@ -266,13 +262,13 @@ const [activeIndex, setActiveIndex] = useState(null);
                 <div className="benefit-indicator durability-indicator">
                   <div className="indicator-core"></div>
                 </div>
-                <div className="header-info">
+                <div className="header-text">
                   <h3 className="benefit-title" style={{fontSize:"1.3rem"}}>Extended Lifespan</h3>
                   <span className="benefit-subtitle">Long-Term Reliability</span>
                 </div>
               </div>
               
-              <div className="lifespan-display">
+              <div className="lifespan-display" style={{marginBottom:"0px"}}>
                 
                 
                 <div className="reliability-stats">

@@ -177,7 +177,7 @@ const Hub = () => {
         .range-card {
           background: rgba(255, 255, 255, 0.95);
           border-radius: 20px;
-          padding: 40px;
+          padding: 10px 20px ;
           box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
           backdrop-filter: blur(10px);
           border: 1px solid rgba(255, 255, 255, 0.2);

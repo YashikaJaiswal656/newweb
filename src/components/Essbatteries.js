@@ -108,9 +108,7 @@ const faqs = [
                   </div>
                   <p className="metric-label">Charge-Discharge Rate</p>
                 </div>
-                <p className="card-description">
-                  Optimize energy use with superior charge-discharge efficiency.
-                </p>
+                
               </div>
             </div>
 
@@ -132,9 +130,7 @@ const faqs = [
                     <span className="badge-text">Commercial & Grid-Scale</span>
                   </div>
                 </div>
-                <p className="card-description">
-                  Perfect for residential, commercial, and grid-scale applications.
-                </p>
+                
               </div>
             </div>
           </div>
@@ -150,7 +146,7 @@ const faqs = [
                     
                   </div>
                   <div className="header-text">
-                    <h3 className="card-title">Longevity</h3>
+                    <h3 className="card-title" style={{marginBottom:"0px"}}>Longevity</h3>
                     <p className="card-subtitle">10+ Years of Reliable Performance</p>
                   </div>
                 </div>
@@ -189,7 +185,7 @@ const faqs = [
                 </div>
 
                 <p className="card-description">
-                  Designed for over 10 years of reliable performance with minimal maintenance, giving you complete peace of mind. Once installed, our systems operate autonomously with self-diagnostic capabilities that prevent issues before they occur.
+                  Designed for over 10 years of reliable performance with minimal maintenance, giving you complete peace of mind. Once installed, our systems operate autonomously with self-diagnostic capabilities .
                 </p>
               </div>
             </div>
@@ -271,7 +267,7 @@ const faqs = [
                 <div className="benefit-indicator durability-indicator">
                   <div className="indicator-core"></div>
                 </div>
-                <div className="header-info">
+                <div className="header-text">
                   <h3 className="benefit-title">Extended Lifespan</h3>
                   <span className="benefit-subtitle">10+ Years of Performance</span>
                 </div>

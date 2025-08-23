@@ -389,9 +389,7 @@ body {
   margin: 0 auto;
 }
 
-.faq-item {
-  margin-bottom: 16px;
-}
+
 
 .faq-item.reveal {
   animation: slide 0.7s ease-out forwards;

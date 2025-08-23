@@ -54,9 +54,7 @@ const Inverter = () => {
                   </div>
                   <p className="metric-label">Energy Efficiency</p>
                 </div>
-                <p className="card-description">
-                  Fast acceleration and smooth operation for all types of EVs.
-                </p>
+
               </div>
             </div>
 
@@ -78,9 +76,7 @@ const Inverter = () => {
                     <span className="badge-text">Zero Emission Operation</span>
                   </div>
                 </div>
-                <p className="card-description">
-                  Sustainable technology that contributes to a greener future.
-                </p>
+                
               </div>
             </div>
           </div>
@@ -96,7 +92,7 @@ const Inverter = () => {
                     
                   </div>
                   <div className="header-text">
-                    <h3 className="card-title">Extended Range</h3>
+                    <h3 className="card-title" style={{margin:"0px"}}>Extended Range</h3>
                     <p className="card-subtitle">High-Capacity Performance</p>
                   </div>
                 </div>
@@ -135,7 +131,7 @@ const Inverter = () => {
                 </div>
 
                 <p className="card-description">
-                  High-capacity batteries for fewer charging stops and more travel freedom. Experience the confidence of extended range with our premium energy storage solutions that keep you moving longer. Advanced power management ensures maximum efficiency.
+                  High-capacity batteries for fewer charging stops and more travel freedom. Experience the confidence of extended range with our premium energy storage solutions that keep you moving longer.
                 </p>
               </div>
             </div>

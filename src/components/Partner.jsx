@@ -68,7 +68,7 @@ const Partner = () => {
                 <div className="benefit-indicator durability-indicator">
                   <div className="indicator-core"></div>
                 </div>
-                <div className="header-info">
+                <div className="header-text">
                   <h3 className="benefit-title">Efficiency</h3>
                   <span className="benefit-subtitle">Rapid Charging Technology</span>
                 </div>
