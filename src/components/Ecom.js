@@ -6,6 +6,7 @@ import EcommerceBanner from './EcommerceBanner';
 import { ProductGridSkeleton, HeaderSkeleton } from './SkeletonLoader';
 import '../css/ecom.css';
 
+
 function Ecom({ cart, setCart }) {
   const [isLoading, setIsLoading] = useState(true);
   const [shoppingCount, setShoppingCount] = useState(2847);
@@ -119,6 +120,7 @@ function Ecom({ cart, setCart }) {
   }, []);
 
   return (
+    <>
     <div className="ecom-container">
       {headerLoading ? <HeaderSkeleton /> : <Header cart={cart} />}
 
@@ -164,6 +166,8 @@ function Ecom({ cart, setCart }) {
         </div>
       </div>
     </div>
+    
+    </>
   );
 }
 

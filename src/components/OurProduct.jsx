@@ -100,14 +100,14 @@ const OurProduct = () => {
 
           <div className="features-section">
             <div className="features-card">
-              <div className="features-headerr">
+              <div className="features-headerr" style={{marginBottom:"0px"}}>
                 <div className="features-accent-line"></div>
                 <h3>Advanced Features & Benefits</h3>
               </div>
               
               <div className="features-gridd">
                 {features.map((feature, index) => (
-                  <div key={index} className="feature-itemm">
+                  <div key={index} className="feature-itemm" >
                     <div className="feature-content">
                       <div className="feature-iconn">
                         <i className="fas fa-check"></i>
