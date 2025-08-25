@@ -107,7 +107,7 @@ const OurProduct = () => {
               
               <div className="features-gridd">
                 {features.map((feature, index) => (
-                  <div key={index} className="feature-itemm" >
+                  <div key={index} className="feature-itemmm" >
                     <div className="feature-content">
                       <div className="feature-iconn">
                         <i className="fas fa-check"></i>

@@ -63,13 +63,13 @@ const ProductCard = ({ product, cart, addToCart, updateCartQuantity }) => {
         {discountPercentage > 0 && (
           <span className="card-badge discount" style={{ top: '0.4rem', left: '0.4rem' }}>
             <span className="badge-text">{discountPercentage}%</span>
-            <span className="badge-label">OFF</span>
+            <span className="badge-labell">OFF</span>
           </span>
         )}
         {product.product_warranty && (
           <span className="card-badge warranty" style={{ top: discountPercentage > 0 ? '2.4rem' : '0.4rem', left: '0.4rem' }}>
             <span className="badge-text">{product.product_warranty}</span>
-            <span className="badge-label">Warranty</span>
+            <span className="badge-labell">Warranty</span>
           </span>
         )}
         {product.isNew && (

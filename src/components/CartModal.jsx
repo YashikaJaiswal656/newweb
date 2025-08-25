@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft } from 'lucide-react';
 import demoimg from '../img/finike_lithium_resized.jpg';
 import '../css/CartModal.css';
+import Cardsproduct from './Cardsproduct';
 
 const CartModal = ({ cart = [], setCart }) => {
     useEffect(() => {
@@ -46,6 +47,7 @@ const CartModal = ({ cart = [], setCart }) => {
   };
 
   return (
+    <>
     <div className="cart-container">
       {/* Header */}
       <header className="cart-header">
@@ -218,6 +220,8 @@ const CartModal = ({ cart = [], setCart }) => {
         </div>
       </div>
     </div>
+    <Cardsproduct/>
+    </>
   );
 };
 
