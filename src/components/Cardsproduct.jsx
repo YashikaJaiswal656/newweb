@@ -7,70 +7,71 @@ const Cardsproduct = ({ cart, setCart }) => {
   const [favorites, setFavorites] = useState(new Set());
   
   const products = [
-    {
-      id: 1,
-      name: "Finike Lithium 1100 VA Inverter",
-      warranty: "3-year warranty",
-      discount: "52% OFF",
-      currentPrice: 27999,
-      originalPrice: 50331,
-      rating: 4.5,
-      reviews: 128,
-      features: [
-        "1280Wh LiFePO4 Lithium Battery with Smart BMS  Delivers safe, reliable power with advanced Battery Management System Enhanced protection with In-built UPS mode Option"
-      ],
-      image: "https://finikelithium.com/static/media/inverter1.35ddb3c7941598e9edaa.jpg",
-      inStock: true,
-      fastDelivery: true
-    },
-    {
-      id: 2,
-      name: "Finike Lithium 1100 VA Inverter",
-      warranty: "4-year warranty",
-      discount: "54% OFF",
-      currentPrice: 28999,
-      originalPrice: 60831,
-      rating: 4.6,
-      reviews: 156,
-      features: [
-        "1280Wh LiFePO4 Lithium Battery with Smart BMS Delivers safe, reliable power with advanced Battery Management System Enhanced protection with In-built UPS mode Option"
-      ],
-      image: "https://finikelithium.com/static/media/inverter1.35ddb3c7941598e9edaa.jpg",
-      inStock: true,
-      fastDelivery: true
-    },
-    {
-      id: 3,
-      name: "Finike Lithium 1100 VA Inverter",
-      warranty: "5-year warranty",
-      discount: "51% OFF",
-      currentPrice: 29499,
-      originalPrice: 59831,
-      rating: 4.7,
-      reviews: 89,
-      features: [
-        "1280Wh LiFePO4 Lithium Battery with Smart BMSDelivers safe, reliable power with advanced Battery Management System Enhanced protection with In-built UPS mode Option"
-      ],
-      image: "https://finikelithium.com/static/media/inverter1.35ddb3c7941598e9edaa.jpg",
-      inStock: true,
-      fastDelivery: true
-    },{
-      id: 4,
-      name: "Finike Lithium 1100 VA Inverter",
-      warranty: "5-year warranty",
-      discount: "51% OFF",
-      currentPrice: 29499,
-      originalPrice: 59831,
-      rating: 4.7,
-      reviews: 89,
-      features: [
-        "1280Wh LiFePO4 Lithium Battery with Smart BMSDelivers safe, reliable power with advanced Battery Management System Enhanced protection with In-built UPS mode Option"
-      ],
-      image: "https://finikelithium.com/static/media/inverter1.35ddb3c7941598e9edaa.jpg",
-      inStock: true,
-      fastDelivery: true
-    }
-  ];
+  {
+    id: 7,
+    name: "Solar Panel Kit - 100W Monocrystalline",
+    warranty: "10-year warranty",
+    discount: "35% OFF",
+    currentPrice: 8999,
+    originalPrice: 13831,
+    rating: 4.5,
+    reviews: 128,
+    features: [
+      "High-efficiency monocrystalline solar cells with 21% conversion rate. Weather-resistant aluminum frame with tempered glass surface. Compatible with MPPT charge controllers and battery systems."
+    ],
+    image: "https://finikelithium.com/static/media/inverter1.35ddb3c7941598e9edaa.jpg",
+    inStock: true,
+    fastDelivery: true
+  },
+  {
+    id: 8,
+    name: "MPPT Solar Charge Controller - 40A",
+    warranty: "5-year warranty",
+    discount: "42% OFF",
+    currentPrice: 4599,
+    originalPrice: 7931,
+    rating: 4.6,
+    reviews: 156,
+    features: [
+      "Maximum Power Point Tracking technology with 99% efficiency. LCD display with real-time monitoring. Compatible with 12V/24V battery systems and multiple battery types."
+    ],
+    image: "https://finikelithium.com/static/media/inverter1.35ddb3c7941598e9edaa.jpg",
+    inStock: true,
+    fastDelivery: true
+  },
+  {
+    id: 9,
+    name: "Battery Monitoring System - Smart BMS",
+    warranty: "3-year warranty",
+    discount: "28% OFF",
+    currentPrice: 3299,
+    originalPrice: 4581,
+    rating: 4.7,
+    reviews: 89,
+    features: [
+      "Real-time battery voltage and current monitoring with mobile app connectivity. Over-discharge and overcharge protection. Temperature compensation and cell balancing features."
+    ],
+    image: "https://finikelithium.com/static/media/inverter1.35ddb3c7941598e9edaa.jpg",
+    inStock: true,
+    fastDelivery: true
+  },
+  {
+    id: 10,
+    name: "DC-AC Power Cable Kit - Heavy Duty",
+    warranty: "2-year warranty",
+    discount: "45% OFF",
+    currentPrice: 1899,
+    originalPrice: 3453,
+    rating: 4.4,
+    reviews: 203,
+    features: [
+      "High-quality copper conductors with weather-resistant insulation. Multiple connector types included for universal compatibility. Safety fuses and circuit breakers integrated."
+    ],
+    image: "https://finikelithium.com/static/media/inverter1.35ddb3c7941598e9edaa.jpg",
+    inStock: true,
+    fastDelivery: true
+  }
+];
 const handleAddToCart = (product) => {
   const quantityToAdd = getQuantity(product.id);
 
