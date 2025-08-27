@@ -800,47 +800,6 @@ const downloadPDF = async () => {
                   </div>
                   {regErrors.purchaseDate && <span className="error">{regErrors.purchaseDate}</span>}
                 </div>
-
-                {/* Invoice Upload */}
-                <div className="input-group file-upload">
-                  <label>Upload Invoice</label>
-                  <div
-                    className="file-drop-area"
-                    onClick={() => document.getElementById("invoice").click()}
-                  >
-                    <input
-                      id="invoice"
-                      type="file"
-                      name="invoice"
-                      onChange={handleFileChange}
-                      accept=".pdf,.jpg,.jpeg,.png"
-                      required
-                      style={{ display: "none" }}
-                    />
-                    <div className="file-drop-content">
-                      <div className="upload-icon">📎</div>
-                      <p>
-                        Drop your invoice here or <span>browse files</span>
-                      </p>
-                      <small>Supports: PDF, JPG, PNG</small>
-                    </div>
-                  </div>
-                  {previewUrl && (
-                    <div className="file-preview">
-                      {previewUrl === "pdf" ? (
-                        <p>PDF selected (preview not available)</p>
-                      ) : (
-                        <img
-                          src={previewUrl}
-                          alt="Invoice preview"
-                          style={{ maxWidth: "100%", maxHeight: "200px" }}
-                        />
-                      )}
-                    </div>
-                  )}
-                  {regErrors.invoice && <span className="error">{regErrors.invoice}</span>}
-                </div>
-
                 {/* Invoice No */}
                 <div className="input-group">
                   <label>Invoice Number</label>
@@ -879,6 +838,49 @@ const downloadPDF = async () => {
                   {regErrors.dealer && <span className="error">{regErrors.dealer}</span>}
                 </div>
 
+                {/* Invoice Upload */}
+                <div className="input-group">
+                  <label>Upload Invoice</label>
+                  <div
+                    className="file-drop-area"
+                    onClick={() => document.getElementById("invoice").click()}
+                  >
+                    <input
+                      id="invoice"
+                      type="file"
+                      name="invoice"
+                      onChange={handleFileChange}
+                      accept=".pdf,.jpg,.jpeg,.png"
+                      required
+                      
+                      style={{ display: "none" }}
+                    />
+                    <div className="file-drop-content">
+                      <div className="upload-icon">📎</div>
+                      <p>
+                        Drop your invoice here or <span>browse files</span>
+                      </p>
+                      
+                    </div>
+                  </div>
+                  {previewUrl && (
+                    <div className="file-preview">
+                      {previewUrl === "pdf" ? (
+                        <p>PDF selected (preview not available)</p>
+                      ) : (
+                        <img
+                          src={previewUrl}
+                          alt="Invoice preview"
+                          style={{ maxWidth: "100%", maxHeight: "200px" }}
+                        />
+                      )}
+                    </div>
+                  )}
+                  {regErrors.invoice && <span className="error">{regErrors.invoice}</span>}
+                </div>
+
+
+
                 {/* Pincode */}
                 <div className="input-group">
                   <label>Pincode</label>
@@ -899,7 +901,7 @@ const downloadPDF = async () => {
                 </div>
 
                 {/* Comments */}
-                <div className="input-group full-width">
+                <div className="input-group">
                   <label>Additional Details (Optional)</label>
                   <div className="input-wrapper">
                     <textarea
@@ -909,7 +911,7 @@ const downloadPDF = async () => {
                       onChange={handleRegChange}
                       placeholder="Any extra details you’d like to provide"
                       maxLength="500"
-                      rows="4"
+                      rows="1"
                     />
                   </div>
                   {regErrors.comments && <span className="error">{regErrors.comments}</span>}

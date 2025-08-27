@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Star, Plus, Minus, ShoppingCart, Share2, Heart, Shield, Battery, Zap } from 'lucide-react';
 import '../css/cardsproduct.css'
 
-const Cardsproduct = () => {
+const Cardsproduct = ({ cart, setCart }) => {
   const [quantities, setQuantities] = useState({});
   const [favorites, setFavorites] = useState(new Set());
-
+  
   const products = [
     {
       id: 1,
@@ -53,7 +53,7 @@ const Cardsproduct = () => {
       ],
       image: "https://finikelithium.com/static/media/inverter1.35ddb3c7941598e9edaa.jpg",
       inStock: true,
-      fastDelivery: false
+      fastDelivery: true
     },{
       id: 4,
       name: "Finike Lithium 1100 VA Inverter",
@@ -68,9 +68,34 @@ const Cardsproduct = () => {
       ],
       image: "https://finikelithium.com/static/media/inverter1.35ddb3c7941598e9edaa.jpg",
       inStock: true,
-      fastDelivery: false
+      fastDelivery: true
     }
   ];
+const handleAddToCart = (product) => {
+  const quantityToAdd = getQuantity(product.id);
+
+  setCart((prevCart) => {
+    const existing = prevCart.find((item) => item.id === product.id);
+    if (existing) {
+      return prevCart.map((item) =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + quantityToAdd }
+          : item
+      );
+    }
+    return [
+      ...prevCart,
+      {
+        ...product,
+        product_name: product.name,                   
+        product_discountedPrice: product.currentPrice,
+        product_stock: 10,                            
+        quantity: quantityToAdd,
+      },
+    ];
+  });
+};
+
 
   const updateQuantity = (productId, change) => {
     setQuantities(prev => ({
@@ -128,24 +153,12 @@ const Cardsproduct = () => {
               <div className="product-info">
                 <h3 className="product-name">{product.name}</h3>
                 
-                <div className="rating-section">
-                  <div className="stars">
-                    {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        size={14} 
-                        fill={i < Math.floor(product.rating) ? '#fbbf24' : 'none'}
-                        stroke={i < Math.floor(product.rating) ? '#fbbf24' : '#d1d5db'}
-                      />
-                    ))}
-                  </div>
-                  <span className="rating-text">({product.reviews} reviews)</span>
-                </div>
+                
                   <span className="current-price">₹{product.currentPrice.toLocaleString()}</span>
                   <span className="original-price">₹{product.originalPrice.toLocaleString()}</span>
                 
 
-                <div className="features-list">
+                <div className="features-list" style={{marginBottom:"10px"}}>
                   {product.features.map((feature, index) => (
                     <div key={index} className="feature-item">
                       <span className="feature-dot">✓</span>
@@ -172,22 +185,16 @@ const Cardsproduct = () => {
                     </button>
                   </div>
 
-                  <button className="add-to-cart-btn">
-                    
-                    Add to Cart
-                  </button>
+                  <button className="add-to-cart-btn" onClick={() => handleAddToCart(product)}>
+  Add to Cart
+</button>
+
 
                   <button className="share-btn">
                     <Share2 size={16} />
                   </button>
                 </div>
 
-                {product.inStock && (
-                  <div className="stock-indicator">
-                    <div className="stock-dot"></div>
-                    <span>In Stock</span>
-                  </div>
-                )}
               </div>
             </div>
           ))}

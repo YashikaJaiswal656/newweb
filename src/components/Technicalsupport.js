@@ -376,7 +376,7 @@ function TechnicalSupport() {
               </div>
 
               {/* Message */}
-              <div className="input-group full-width">
+              <div className="input-group">
                 <label>Describe the Issue in Detail</label>
                 <div className="input-wrapper">
                   <textarea
@@ -385,7 +385,7 @@ function TechnicalSupport() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Please provide detailed info about the issue..."
-                    rows="5"
+                    rows="1"
                   />
                 </div>
                 {errors.message && (

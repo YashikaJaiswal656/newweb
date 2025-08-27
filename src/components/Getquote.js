@@ -260,7 +260,7 @@ function GetQuote() {
               </div>
 
               {/* Message */}
-              <div className="input-group full-width">
+              <div className="input-group">
                 <label>Message</label>
                 <div className="input-wrapper">
                   <textarea
@@ -268,7 +268,7 @@ function GetQuote() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Describe your needs (optional)"
-                    rows="4"
+                    rows="1"
                   ></textarea>
                 </div>
               </div>

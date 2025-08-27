@@ -328,7 +328,7 @@ html, body {
 .input-group label {
   font-weight: 600;
   color: #374151;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem !important;
   font-size: 0.95rem;
 }
 
@@ -369,7 +369,7 @@ html, body {
   position: relative;
   border: 2px dashed #d1d5db;
   border-radius: 12px;
-  padding: 2rem;
+  padding: 16px;
   text-align: center;
   background: #f9fafb;
   transition: all 0.3s ease;
@@ -393,15 +393,17 @@ html, body {
 
 .file-drop-content {
   pointer-events: none;
+  display:flex;
+  align-items:center;
 }
 
 .upload-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  
 }
 
 .file-drop-content p {
-  margin-bottom: 0.5rem;
+  
   color: #6b7280;
 }
 

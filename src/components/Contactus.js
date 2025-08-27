@@ -262,7 +262,7 @@ function ContactUs() {
             </div>
 
             {/* Message */}
-            <div className="input-group full-width">
+            <div className="input-group">
               <label>Details</label>
               <div className="input-wrapper">
                 <textarea

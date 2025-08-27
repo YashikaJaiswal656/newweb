@@ -220,7 +220,8 @@ const CartModal = ({ cart = [], setCart }) => {
         </div>
       </div>
     </div>
-    <Cardsproduct/>
+    <Cardsproduct cart={cart} setCart={setCart} />
+
     </>
   );
 };

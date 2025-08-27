@@ -114,7 +114,7 @@ const Warranty = () => {
 
               <div className="card-content">
                 
-                <div className="icon-container">
+                <div className="icon-container" style={{marginBottom:"14px"}}>
                   <div 
                     className="icon-wrapperr"
                     style={{
@@ -132,12 +132,12 @@ const Warranty = () => {
                   </div>
                 </div>
 
-                <div className="text-content">
+                <div className="text-content" style={{marginBottom:"0px"}}>
                   <h3 className="service-title">
                     <span className="mobile-title">{service.shortTitle}</span>
                     <span className="desktop-title">{service.title}</span>
                   </h3>
-                  <p className="service-description">{service.description}</p>
+                  <p className="service-description" style={{margin:"0px"}}>{service.description}</p>
                   
                 </div>
 
