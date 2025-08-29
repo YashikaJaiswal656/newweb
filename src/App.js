@@ -28,6 +28,7 @@ import Termsandconditions from './components/Termsandconditions';
 import Cancellationrefundpolicy from './components/Cancellationrefundpolicy';
 import Shippingpolicy from './components/Shippingpolicy';
 import Cardsproduct from './components/Cardsproduct';
+import ProductTracking from './components/tracking';
 
 function App() {
   const [cart, setCart] = useState(() => {
@@ -71,7 +72,7 @@ function App() {
             <Route path="/cancellationrefundpolicy" element={<Cancellationrefundpolicy />} />
             <Route path="/shippingpolicy" element={<Shippingpolicy />} />
             <Route path="/cardsproduct" element={<Cardsproduct cart={cart} setCart={setCart} />} />
-
+<Route path="/Product-tracking" element={<ProductTracking />} />
           </Routes>
         </main>
         <Footer />

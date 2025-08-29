@@ -109,6 +109,11 @@ function ModernFooter() {
             <h3>Quick Navigation</h3>
             <div className="links-grid">
               <div className="link-group">
+                
+                <Link to="/Product-tracking" className="footer-link">
+                  <FaArrowRight className="link-arrow" />
+                  Product Tracking
+                </Link>
                 <Link to="/" className="footer-link">
                   <FaArrowRight className="link-arrow" />
                   Home
